@@ -1,5 +1,5 @@
-認識 Microsoft Azure
-===================
+Day 1: 認識 Microsoft Azure
+==========================
 
 # 前言
 
