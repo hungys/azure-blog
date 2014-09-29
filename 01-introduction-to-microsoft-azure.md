@@ -18,6 +18,16 @@
 
 ![The components of Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/azurecomponentsintronew780.png)
 
+綜觀來說，Azure 的服務可以分為以下七大類：
+
+* 計算與網路
+* 網路與行動
+* 資料與分析
+* 儲存體與備份
+* 媒體與 CDN
+* 混合式整合
+* 身份識別與存取管理
+
 若您有興趣的話，微軟也將 Azure 所有的服務繪製成一張[巨幅海報](http://azure.microsoft.com/zh-tw/documentation/infographics/azure/)，您可以自行下載該 PDF 檔輸出，或是親自參與台灣微軟所舉辦的研討會，也有機會拿到繁體中文版的海報，筆者在先前的 TechDays 2014 便拿到了一張。
 
 # 運算服務
@@ -64,7 +74,7 @@ SQL Database (過去稱為 SQL Azure) 是一個針對雲端環境優化的 SQL S
 
 ![Blob](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/storageblobsintronew.png)
 
-Blob 是設計用來儲存非結構化二進位資料的服務，而且單一個 Blob 就有嘟打 1 TB 的容量，適合用來儲存視訊或備份資料等等，您可以使用 Blob 作為簡單而且成本低廉的儲存體服務。
+Blob 是設計用來儲存非結構化二進位資料的服務，而且單一個 Blob 就有多達 1 TB 的容量，適合用來儲存視訊或備份資料等等，您可以使用 Blob 作為簡單而且成本低廉的儲存體服務。
 
 # 網路
 
