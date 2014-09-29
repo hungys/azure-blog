@@ -1,3 +1,6 @@
+認識 Microsoft Azure
+===================
+
 # 前言
 
 這是筆者第一次參加鐵人賽，正好看到今年的推廣主題是由 Microsoft 所提出的 Open Source on Azure，筆者一直以來非常熱衷於微軟的 solution，但也非常喜歡 open source 的相關專案，正巧利用這次的機會，希望在這 30 天的時間內可以讓更多人認識近年來微軟在 Azure 上所做的轉變，以及對於 open source solution 日益健全的支援。
