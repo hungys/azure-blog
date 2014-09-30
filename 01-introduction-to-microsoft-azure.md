@@ -9,7 +9,7 @@ Day 1: 認識 Microsoft Azure
 
 - 認識 Microsoft Azure
 - 當 Azure 擁抱開放
-- 在 Azure 上快速架設開源 CMS 專案
+- 在 Azure 上快速架設開源 Web App 專案
 - 虛擬機器、雲端服務、網站服務比較
 - 使用跨平台 CLI 管理 Azure (1)
 - 使用跨平台 CLI 管理 Azure (2)
