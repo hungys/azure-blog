@@ -78,7 +78,7 @@ Day 2: 當 Azure 擁抱開放
 
 本文針對了微軟在 Azure 上所提供的 open source 服務做了概略性的介紹，在接下來的連載當中，會挑選其中較多人使用的服務來做介紹，希望可以讓大家看到擁抱開放後、很不一樣的 Microsoft Azure！
 
-另外，今年 TechDays 2014 有一場由 Eric 所主講的 session 在介紹 Microsoft Azure 上所支援的開源技術，並且著重在與 Java 開發技術的整合，目前錄影檔已經上傳至 Youtube 上，有興趣的可以前往：[https://www.youtube.com/watch?v=ckrb6NjNWA8](https://www.youtube.com/watch?v=ckrb6NjNWA8)
+另外，今年 TechDays 2014 有一場由 Eric 所主講的 session 在介紹 Microsoft Azure 上所支援的開源技術，並且著重在與 Java 開發技術的整合，目前錄影檔已經上傳至 MVA (Microsoft Virtual Academy) 上，有興趣的可以前往：[http://www.microsoftvirtualacademy.com/training-courses/techdays-taiwan-2014-breakout-sessions-dev](http://www.microsoftvirtualacademy.com/training-courses/techdays-taiwan-2014-breakout-sessions-dev)
 
 ![Azure supported open technologies](https://raw.githubusercontent.com/hungys/azure-blog/master/media/02-when-azure-embrace-open/azure-supported-open.png)
 
