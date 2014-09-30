@@ -181,9 +181,9 @@ Azure 快取 ([Azure Caching](http://azure.microsoft.com/zh-tw/services/cache/))
 
 前文已經介紹了許多 Azure 所提供的雲端服務，橫跨了 IaaS 到 PaaS，但其實 Azure 還提供了更多服務我們還沒有介紹。以資料分析為例，[HDInsight](http://azure.microsoft.com/zh-tw/services/hdinsight/) 便是一個建立在 Azure 上的 Hadoop 叢集，可以提供大量的資料分析。此外，Azure 在近期也推出了機器學習 ([Machine Learning](http://azure.microsoft.com/zh-tw/services/machine-learning/)) 的服務，您可以直接利用雲端平台來進行資料的分析。其餘還包括了一些媒體服務以及驗證服務，細節就留給讀者自行前往 [Azure 官方網站](http://azure.microsoft.com)探索。
 
-# 現在就試用
+# 立即試用
 
-為了讓更多用戶可以體驗 Azure 完整且方便的雲端平台，現在針對新註冊的用戶提供了免費一個月多達台幣 6300 元的免費試用額度，而且過程中會受到消費限制的保護，您不必擔心在試用期間會被微軟收取任何一毛錢。若試用覺得滿意，您可以註冊一個隨付即用 (Pay-As-You-Go) 的帳戶，體驗雲端運算所帶來的用多少付多少的概念，現在就立即開始體驗吧：[http://azure.microsoft.com/zh-tw/pricing/free-trial/](http://azure.microsoft.com/zh-tw/pricing/free-trial/)
+為了讓更多用戶可以體驗 Azure 完整且方便的雲端平台，現在針對新註冊的用戶提供了免費一個月多達台幣 6300 元的免費試用額度，而且過程中會受到消費限制的保護，您不必擔心在試用期間會被微軟收取任何一毛錢。若試用覺得滿意，您可以註冊一個隨付即用 (Pay-As-You-Go) 的帳戶，體驗雲端運算所帶來的用多少付多少的概念，現在就開始體驗吧：[http://azure.microsoft.com/zh-tw/pricing/free-trial/](http://azure.microsoft.com/zh-tw/pricing/free-trial/)
 
 # 參考資料
 
