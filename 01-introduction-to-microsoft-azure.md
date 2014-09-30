@@ -187,5 +187,6 @@ Azure 快取 ([Azure Caching](http://azure.microsoft.com/zh-tw/services/cache/))
 
 # 參考資料
 
-- Azure 簡介 ([http://azure.microsoft.com/zh-tw/documentation/articles/fundamentals-introduction-to-azure/](http://azure.microsoft.com/zh-tw/documentation/articles/fundamentals-introduction-to-azure/))
-- Introducing Microsoft Azure ([http://azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/](http://azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/))
+- 各服務示意圖皆取自 [Microsoft Azure 官方網站](http://azure.microsoft.com)
+- Azure 簡介, [http://azure.microsoft.com/zh-tw/documentation/articles/fundamentals-introduction-to-azure/](http://azure.microsoft.com/zh-tw/documentation/articles/fundamentals-introduction-to-azure/)
+- Introducing Microsoft Azure, [http://azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/](http://azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/)
