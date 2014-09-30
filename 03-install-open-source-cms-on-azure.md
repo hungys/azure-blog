@@ -3,11 +3,11 @@ Day 3: 在 Azure 上快速架設開源 Web App
 
 # 前言
 
-從本文開始，筆者將開始深入介紹 Azure 的各個服務及元件的使用，首先第一個主題會由較容易上手的網站服務 (Websites) 開始，不過是要帶領讀者透過 Azure 所提供的 Gallery，在數分鐘內快速部署一個 Web App 專案至雲端平台，今天筆者將會以相當多人使用的部落格專案 WordPress 作為範例。若您有實際從安裝 Linux VM、安裝 LAMP 到完成 WordPress 的安裝，甚至是網域的設定，在體驗過 Azure 的便利之後，您一定會非常有感覺。
+從本文開始，筆者將開始深入介紹 Azure 中各個服務及元件的使用，首先第一個主題會由較容易上手的網站服務 (Websites) 開始，不過是要帶領讀者透過 Azure 所提供的 Gallery，在數分鐘內快速部署一個 Web App 專案至雲端平台，今天筆者將會以相當多人使用的部落格專案 WordPress 作為範例。若您有實際從安裝 Linux VM、安裝 LAMP 到完成 WordPress 的安裝，甚至是網域的設定，在體驗過 Azure 的便利之後，您一定會非常有感覺。
 
 # 透過 Azure Gallery 安裝 Web App
 
-1. 首先您必須先使用您的 Azure 帳號進入 Management Portal，接著點選左下角的**「New」**。在這邊先向讀者說明，由於筆者比較習慣使用英文的界面，所以文中的截圖大多會以英文為主，若使用中文請自行比對。
+1. 首先您必須先使用您的 Azure 帳號進入 Management Portal，接著點選左下角的**「New」**。在這邊先向讀者說明，由於筆者比較習慣使用英文的界面，所以文中的截圖大多會以英文為主，若使用中文的界面請自行比對。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step01-new.png)
 
@@ -16,11 +16,11 @@ Day 3: 在 Azure 上快速架設開源 Web App
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step02-from-gallery.png)
 
 
-3. 在 Azure Gallery 中，我們可以看到許多微軟為我們準備好的網頁應用程式，從部落格、CMS、討論區甚至是 Python 著名的 Framework Flask 也有，在此我們選擇**「WordPress」**。
+3. 在 Azure Gallery 中，我們可以看到許多微軟為我們準備好的網頁應用程式，從部落格、CMS、討論區甚至是 Python 界著名的 Framework Flask 也有，在此我們選擇**「WordPress」**。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step03-gallery-wordpress.png)
 
-4. 接下來需要對我們的網站服務做初步的設定，這邊最重要的是選定一個您想使用的網域名稱，每個網站服務實體都可以免費擁有一個 azurewebsites.net 底下的子域名。當然，您未來也可自行設定自定義域名。資料庫部分由於 WordPress 大多是搭配 MySQL 使用，所以我們使用預設的設定。
+4. 接下來需要對我們的網站服務做初步的設定，這邊最重要的是選定一個您想使用的網域名稱，每個網站服務實體都可以免費擁有一個 azurewebsites.net 底下的子域名。當然，您未來也可自行選擇設定自定義域名。資料庫部分由於 WordPress 大多是搭配 MySQL 使用，所以我們使用預設的設定。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step04-wordpress-configure.png)
 
@@ -64,17 +64,17 @@ Day 3: 在 Azure 上快速架設開源 Web App
 
 # 與 Storage 整合
 
-在介紹本節之前，首先先請讀者留意一下網站服務的[計價規則](http://azure.microsoft.com/zh-tw/pricing/details/websites/)，如果您選擇的是免費的網站服務，會受到每天對外流量 165 MB 的限制，如果是一般純文字、流量普通的部落格倒還好，但如果有大量的圖片而且存放在該網站服務的目錄中，有可能會輕鬆破表（這是筆者曾經遇過的慘痛經驗）。
+在介紹本節之前，首先要請讀者留意一下網站服務的[計價規則](http://azure.microsoft.com/zh-tw/pricing/details/websites/)，如果您選擇的是免費的網站服務，會受到每天對外流量 **165 MB** 的限制，如果是一般純文字、流量普通的部落格倒還好，但如果有大量的圖片而且存放在該網站服務的目錄中，有可能會輕鬆破表（這是筆者曾經遇過的慘痛經驗）。
 
 ![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/websites-pricing.png)
 
 也因為如此，我們必須尋找一個更適合存放這些多媒體檔案的空間，Azure 上所提供的 Storage 儲存服務就再適合不過了。我們在 Day 1 曾經介紹到 Blob 的儲存體服務，受益於 Storage 相當低廉的成本，如果我們將這些較大的檔案存放在 Azure Storage，就可以有效降低網站對外的流量，在一定程度的訪客數之下，您的免費層級服務仍可以維持住服務。接下來的內容，將帶領大家整合 WordPress 與 Azure Storage，透過 MS Open Tech 所開發的外掛插件。
 
-1. 首先，進入到 WordPress 的後台，點選「外掛」並搜尋「Azure」，搜尋結果第一個「Windows Azure Storage」便是我們所需要的插件，點選「立刻安裝」。
+1. 首先，進入到 WordPress 的後台，點選**「外掛」**並搜尋**「Azure」**，搜尋結果第一個**「Windows Azure Storage for WordPress」**便是我們所需要的插件，點選**「立刻安裝」**。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step15-extensions.png)
 
-2. 下載並安裝外掛後，點選「啟用外掛」。
+2. 下載並安裝外掛後，點選**「啟用外掛」**。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step16-extensions-finish.png)
 
@@ -82,11 +82,11 @@ Day 3: 在 Azure 上快速架設開源 Web App
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step17-extensions-list.png)
 
-4. 接著從畫面左側的「設定」>「Windows Azure」開始進行相關設定。由於我們還沒有深入介紹到 Storage 的建立以及使用，這部分讀者可以自行研究如何從 Management Portal 建立一個儲存體服務並取得所需的「Storage Account Name」及「Primary Access Key」。不過這個外掛的流程上有點奇怪，如果您要選擇現有的 Container 需要先點選「Save Changes」讓畫面 reload 才會出現選項。
+4. 接著從畫面左側的**「設定」**>**「Windows Azure」**開始進行相關設定。由於我們還沒有深入介紹到 Storage 的建立以及使用，這部分讀者可以自行研究如何從 Management Portal 建立一個儲存體服務並取得所需的**「Storage Account Name」**及**「Primary Access Key」**。不過這個外掛的流程上有點奇怪，如果您要選擇現有的 Container 需要先點選**「Save Changes」**讓畫面 reload 才會出現選項。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step18-storage-configure.png)
 
-5. 這邊我們選擇建立一個新的 Container，輸入名稱後按下「Create」。
+5. 這邊我們選擇建立一個新的 Container，輸入名稱後按下**「Create」**。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step19-create-container.png)
 
@@ -94,7 +94,7 @@ Day 3: 在 Azure 上快速架設開源 Web App
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step20-new-post.png)
 
-7. 在上傳的頁籤中，選擇相對應的 Container，選取欲上傳的圖檔並按下「Upload」。
+7. 在上傳的頁籤中，選擇相對應的 Container，選取欲上傳的圖檔並按下**「Upload」**。
 
 	![install tutorial](https://raw.githubusercontent.com/hungys/azure-blog/master/media/03-install-open-source-cms-on-azure/step21-upload.png)
 
