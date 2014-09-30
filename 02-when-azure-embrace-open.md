@@ -89,4 +89,4 @@ Day 2: 當 Azure 擁抱開放
 - 微軟為何鍾情開源技術？, [http://oss.org.cn/html/79/n-86179.html](http://oss.org.cn/html/79/n-86179.html)
 - 微軟 Windows Azure 的開源之道, [http://www.cnetnews.com.cn/2013/0522/2160615.shtml](http://www.cnetnews.com.cn/2013/0522/2160615.shtml)
 - 我們宣佈與 Google 及 Docker 合作以在 Microsoft Azure 上支援新的開源專案, [http://blogs.msdn.com/b/msdntaiwan/archive/2014/07/12/google-docker-microsoft-azure.aspx](http://blogs.msdn.com/b/msdntaiwan/archive/2014/07/12/google-docker-microsoft-azure.aspx)
-- 認識 Microsoft Azure 上的 Java 平台以及各種開源技術, [https://www.youtube.com/watch?v=ckrb6NjNWA8](https://www.youtube.com/watch?v=ckrb6NjNWA8)
+- 認識 Microsoft Azure 上的 Java 平台以及各種開源技術, [http://www.microsoftvirtualacademy.com/training-courses/techdays-taiwan-2014-breakout-sessions-dev](http://www.microsoftvirtualacademy.com/training-courses/techdays-taiwan-2014-breakout-sessions-dev)
