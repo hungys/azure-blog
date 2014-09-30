@@ -53,7 +53,7 @@ Day 1: 認識 Microsoft Azure
 
 下面這張圖以服務的特性及目的將 Azure 上所提供的所有服務分門別類，我們可以很清楚看到 Azure 從最一開始單純的服務到今天，已經是一個提供橫跨 IaaS、PaaS 到 SaaS 的完整雲端平台，在接下來的內容中，筆者將簡單介紹 Azure 中的各項服務。
 
-![The components of Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/azurecomponentsintronew780.png)
+![The components of Azure](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/azure-components.png)
 
 綜觀來說，Azure 的服務可以分為以下七大類：
 
@@ -73,19 +73,19 @@ Day 1: 認識 Microsoft Azure
 
 ## 虛擬機器 (Virtual Machines)
 
-![Virtual Machines](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/virtualmachinesintronew.png)
+![Virtual Machines](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/virtual-machines.png)
 
 虛擬機器 ([Virtual Machines](http://azure.microsoft.com/zh-tw/services/virtual-machines/)) 是一種 IaaS 服務，提供了最高度彈性的服務，您可以透過 Azure Gallery 組件庫使用預先建立好的作業系統映像檔，其中包括了各個版本的 Windows Server 甚至是 Ubuntu、CentOS 等開源的作業系統環境，或是您也可以自行上傳預先準備好的 VHD 檔，將原本的本地環境部署至虛擬機器服務。在虛擬機器服務中，您擁有了 100% 的主控權，可以透過 SSH 或是遠端桌面連線的方式管理您的伺服器。其中很特別的是，微軟也預先準備好了許多預載好像 SQL Server 或 Visual Studio 的映像檔，您可以在數分鐘之內就部署好一台裝有 Visual Studio 14 CTP 的開發測試環境。
 
 ## 網站服務 (Websites)
 
-![Websites](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/azurewebsitesintronew.png)
+![Websites](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/websites.png)
 
 網站服務 ([Websites](http://azure.microsoft.com/zh-tw/services/websites/)) 是一種最容易部署網站的服務，他是建構在微軟自家的 IIS 服務之上，除了過去熟悉的 ASP.NET 之外，也同時提供了對 PHP、Python 及 node.js 等語言的支援，讓您可以在數分鐘之內就將一個網站應用程式部署至雲端。同時，網站服務也提供了高度延展的設定，您可以依照需求選擇不同大小/價位的服務，並且可以依照流量及 CPU 運算資源做 auto-scaling。最重要的是，每個 Azure 帳戶擁有 10 個免費 (Free) 量級的網站服務，您可以不需花費任何金錢就將輕量級的網站服務部署在雲端資料中心。
 
 ## 雲端服務 (Cloud Services)
 
-![Cloud Services](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/cloudservicesintronew.png)
+![Cloud Services](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/cloud-services.png)
 
 雲端服務 ([Cloud Services](http://azure.microsoft.com/zh-tw/services/cloud-services/)) 是一種介於前兩者之間的 PaaS 服務，它提供了比網站服務更高的彈性，但其背後的虛擬機器是由微軟資料中心所代管，您可以專注在您的應用程式及服務本身。而依照應用程式不同的需求，雲端服務提供了兩種運轉模式，分別是 Worker Role 及 Web Role，並且也提供了對 .NET 以外程式語言的支援。
 
@@ -97,19 +97,19 @@ Day 1: 認識 Microsoft Azure
 
 ## SQL Database
 
-![SQL Database](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/storageazuresqldatabaseintronew.png)
+![SQL Database](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/sql-database.png)
 
 [SQL Database](http://azure.microsoft.com/zh-tw/services/sql-database/) (過去稱為 SQL Azure) 是一個針對雲端環境優化的 SQL Server 服務，提供了關聯式資料庫的所有重要功能，而且如同過去熟悉的 SQL Server，您可以使用 Entity Framework、ADO.NET 或是其他熟悉的資料存取技術來存取 SQL Databse。如果您過去的服務是建立在 SQL Server 上，SQL Database 會是一個您很好的雲端化選擇，透過 SQL Management Studio 就可以輕鬆的將資料放上雲端。
 
 ## 資料表 (Table)
 
-![Table](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/storagetablesintronew.png)
+![Table](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/table-storage.png)
 
 資料表 ([Table](http://azure.microsoft.com/zh-tw/services/storage/)) 是一種提供大量儲存 key/value 型式的 NoSQL 服務，它不提供關聯式資料庫的功能，但如果您所要存的資料量相當龐大，或是不需要對這些資料執行複雜的 SQL 查詢，那麼它會是一個簡單明瞭而且成本遠低於 SQL Database 的選擇。
 
 ## Blob
 
-![Blob](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/storageblobsintronew.png)
+![Blob](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/blob-storage.png)
 
 [Blob](http://azure.microsoft.com/zh-tw/services/storage/) 是設計用來儲存非結構化二進位資料的服務，而且單一個 Blob 就有多達 1 TB 的容量，適合用來儲存視訊或備份資料等等，您可以使用 Blob 作為簡單而且成本低廉的儲存體服務。
 
@@ -119,13 +119,13 @@ Azure 目前在亞洲、歐洲及美洲數個資料中心內運行，您除了�
 
 ## 虛擬網路 (Virtual Network)
 
-![Virtual Network](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/virtualnetworkintronew.png)
+![Virtual Network](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/virtual-network.png)
 
 透過虛擬網路 ([Virtual Network](http://azure.microsoft.com/zh-tw/services/virtual-network/)) 您可以將 Azure 當作您私有網路的延伸，在上面依需求建立虛擬機器來使用，透過 VPN 閘道裝置來串接您的私有網路以及雲端，建立一個私有雲 (Private Cloud)。例如您只需要將您所擁有的 IPv4 地址指派給雲端的虛擬機器，公司的員工便可以像存取本地端服務來取用這些部署在雲端上的應用程式。
 
 ## 流量管理員 (Traffic Manager)
 
-![Traffic Manager](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/trafficmanagerintronew.png)
+![Traffic Manager](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/traffic-manager.png)
 
 如果您的服務的使用者遍佈全球，並且將服務部署在多個國家的資料中心中運行，為了減少 latency，您會希望使用者可以自動存取到距離較近的資料中心，但若該資料中心的執行個體已經過載，這時候便應該要求導向另一座資料中心，這就是流量管理員 ([Traffic Manager](http://azure.microsoft.com/zh-tw/services/traffic-manager/)) 所可以提供的服務，您可以自行訂定規則，來決定如何將使用者導向到最適合的資料中心。
 
@@ -135,7 +135,7 @@ Azure 目前在亞洲、歐洲及美洲數個資料中心內運行，您除了�
 
 ## 行動服務 (Mobile Services)
 
-![Mobile Services](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/mobileservicesintronew.png)
+![Mobile Services](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/mobile-services.png)
 
 在行動服務 ([Mobile Services](http://azure.microsoft.com/zh-tw/services/mobile-services/)) 中，微軟提供了針對 Mobile App 最基本的三種需求，首先除了提供 SQL Database 的資料儲存空間，更直接提供了對應的 API 接口讓 Client 端可以快速來取用資料庫的資料。另外，現今的 App 經常會整合各式社交服務的帳號，過去若要自行建立這樣的帳號綁定服務，需要撰寫相當多的 OAuth 驗證或是帳號 link & unlink 的邏輯，但透過行動服務，您可以輕鬆將您的 App 與 Facebook、Twitter 甚至是 Google 服務整合，現在更提供了與企業 Active Directory 整合的支援。而在推播服務方面，微軟也提供了 GCM (Google Cloud Messaging)、APNS (Apple Notification Service)、MPNS (Microsoft Phone Notification Service) 及 WNS (Windows Notification Service) 的整合，讓您可以透過單一接口將訊息推送至各個不同的平台，省下了非常多後端開發的時間。
 
@@ -143,7 +143,7 @@ Azure 目前在亞洲、歐洲及美洲數個資料中心內運行，您除了�
 
 ## 通知中樞 (Notification Hubs)
 
-![Notification Hubs](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/notificationhubsintronew.png)
+![Notification Hubs](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/notification-hubs.png)
 
 前面的行動服務雖然提到提供了各平台推播通知的整合，但如果今天的需求是在短時間內大量廣播至各個平台的裝置，例如您需要在數秒內要完成上百萬條訊息的推送，這時候便需要完整的分散式服務架構。相較於知名的 BaaS (Backend-as-a-Service) 服務 Parse，通知中樞 ([Notification Hubs](http://azure.microsoft.com/zh-tw/services/notification-hubs/)) 提供了相當完整的基礎服務以及 API，讓您可以在這個架構之下建立一個快速大量推播的平台，而且可以為您省下整合各平台推播服務的時間。
 
@@ -151,13 +151,13 @@ Azure 目前在亞洲、歐洲及美洲數個資料中心內運行，您除了�
 
 ## 佇列 (Queues)
 
-![Queues](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/queuesintronew.png)
+![Queues](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/queues.png)
 
 佇列 ([Queues](http://azure.microsoft.com/zh-tw/services/storage/)) 是一種 FIFO (First-In-First-Out) 的設計概念，一個應用程式將訊息放入佇列中，而另一個應用程式來讀取該訊息並進行進一步的處理。舉一個簡單的例子，目前最熱門的相簿服務 Flickr 在使用者將照片上傳後，會自動將照片做各種尺寸的縮圖，這種服務變可以透過佇列來達成，在網頁應用程式接收到上傳的照片後，便將該照片資訊放入佇列當中，而在背景工作的另一個角色便不停的從佇列中讀取新上傳的照片，並進行一些需要較長時間的縮圖處理。
 
 ## 服務匯流排 (Service Bus)
 
-![Service Bus](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/servicebustopicssubsintronew.png)
+![Service Bus](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/service-bus.png)
 
 服務匯流排 ([Service Bus](http://azure.microsoft.com/zh-tw/services/service-bus/)) 與上面所提到的佇列不同的地方在於，服務匯流排的目的是讓應用程式在任何地方都能交換資料。除了佇列所能提供的一對一通訊之外，服務匯流排還提供了發佈與訂閱 (pub/sub) 的機制，應用程式可以將訊息傳送到某個主題，而有訂閱該主題的多位收件者可以同時讀取相同訊息，達成一對多的通訊。此外，服務匯流排也提供了轉送 (Relay) 的機制，提供通過防火牆的安全通訊方式。
 
@@ -167,13 +167,13 @@ Azure 目前在亞洲、歐洲及美洲數個資料中心內運行，您除了�
 
 ## Azure 快取 (Azure Caching)
 
-![Cache](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/azurecacheintronew.png)
+![Cache](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/azure-cache.png)
 
 Azure 快取 ([Azure Caching](http://azure.microsoft.com/zh-tw/services/cache/)) 的基本概念便是將大量被取用的內容或資料儲存於記憶體內部，如此一來便可以獲得比資料庫存取或是硬碟存取更高的效能。值得注意的是，Azure 現在也支援了開源專案 redis cache。
 
 ## 內容傳遞網路 (CDN)
 
-![CDN](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/fundamentals-introduction-to-azure/20140924060441/includes/intro-to-azure/cdnintronew.png)
+![CDN](https://raw.githubusercontent.com/hungys/azure-blog/master/media/01-introduction-to-microsoft-azure/cdn.png)
 
 [CDN](http://azure.microsoft.com/zh-tw/services/cdn/) 在全球各地有許多網站，當某個地區的使用者第一次存取特定 Blob 物件時，其內容會從 Azure 資料中心複製到該地區中的 CDN 儲存體，在此之後，來自該地區的 request 將會使用在 CDN 中快取的 Blob 複本，而不需直接連接最近的 Azure 資料中心。
 
