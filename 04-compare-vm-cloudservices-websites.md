@@ -9,9 +9,9 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 
 ![Comparison](https://raw.githubusercontent.com/hungys/azure-blog/master/media/04-compare-vm-cloudservices-websites/comparison-1.png)
 
-上圖是取自 Azure 官方網站對於這三個服務差異的說明，很明顯的可以看到用了兩個因子來比較他們的差異，以上手的容易程度來比較的話：網站服務 > 雲端服務 > 虛擬機器，而反過來說，如果以可以控制的程度來比較的話，結果恰好是反過來：網站服務 < 雲端服務 < 虛擬機器，這應該很好理解。
+上圖是取自 Azure 官方網站對於這三個服務差異的說明，很明顯的可以看到用了兩個因子來比較他們的差異，以上手的容易程度來比較的話：網站服務 > 雲端服務 > 虛擬機器，而反過來說，如果以可以控制的程度來比較的話，結果恰好是反過來的結果：網站服務 < 雲端服務 < 虛擬機器，這樣的結論應該可以接受。
 
-假如用更細的元素、架構，從 Application、Data 到 Firewall、Network 甚至是 OS 本身，下面這張圖也可以明顯的看出三者之間的差別。他們之間的關係有點類似 IaaS、PaaS、SaaS 的層次之分，但值得注意的是，即使是最容易上手的網站服務，也應該歸類在 PaaS。 
+假如用更細的元素、架構，從 Application、Data 到 Firewall、Network 甚至是 OS 本身，下面這張圖也可以明顯的看出三者之間的差別。他們之間的關係有點類似 IaaS、PaaS、SaaS 的層次之分，但值得注意的是，即使是最容易上手的網站服務，也應該歸類在 PaaS。 綜合來看，如果需要對服務有最高的控制權、最彈性的設定，則選擇虛擬機器，反之，想要最快速部署，則使用網站服務。
 
 ![Comparison](https://raw.githubusercontent.com/hungys/azure-blog/master/media/04-compare-vm-cloudservices-websites/comparison-2.png)
 
@@ -24,7 +24,7 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 ## 特色
 
 - 快速、輕鬆部署一個可高度擴展的雲端環境，而且可以從很小的規模開始
-- 支援 .NET、Java、PHP、Node.js、Python
+- **支援 .NET、Java、PHP、Node.js、Python**
 - 內建自動調整規模與負載平衡
 - 具備自動修補功能的高可用性
 - 使用 Git、TFS 和 GitHub 進行部署
@@ -37,7 +37,7 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 - 專注在應用程式本身，無需對 OS 做繁雜的設定或安裝
 - 現代化的 Web 應用程式
 - 直接從 Git、TFS 部署網站進行連續開發
-- 單純的 REST API (如 ASP.NET Web API 最容易部署至 Websites 上)
+- 單純且輕量的 REST API (如 ASP.NET Web API 最容易部署至 Websites 上)
 - 快速建立一個 CMS 網站 (如 WordPress、Drupal、Joomla! 等)
 
 更多細節可參考官方網站：[http://azure.microsoft.com/zh-tw/services/websites/](http://azure.microsoft.com/zh-tw/services/websites/)
@@ -54,7 +54,7 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 - 針對應用程式特性提供不同角色 (Web Role & Worker Role)
 - 必要時可遠端連線進入 VM 進行管理
 - 應用程式整合 Diagnostics 診斷功能
-- 需要將應用程式針對 Cloud Services 架構進行微調，並打包成特定格式部署
+- **需要將應用程式針對 Cloud Services 架構進行微調，並打包成特定格式部署**
 
 ## 特色
 
@@ -67,7 +67,7 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 ## 適用情境
 
 - 多層次、架構的服務，針對各個元件部署在適合的角色中
-- 無狀態性 (stateless) 的服務
+- **無狀態性 (stateless) 的服務**
 
 更多細節可參考官方網站：[http://azure.microsoft.com/zh-tw/services/cloud-services/](http://azure.microsoft.com/zh-tw/services/cloud-services/)
 
@@ -86,7 +86,7 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 
 ## 特色
 
-- 支援 Windows 或 Linux
+- **支援 Windows 或 Linux**
 - 支援直接將本地的 VHD 上傳至雲端部署
 - 內建虛擬網路、負載平衡
 - 可自行安裝各種開放式軟體：Oracle、MySQL、Redis、MongoDB
@@ -102,7 +102,7 @@ Microsoft Azure 提供了相當多種裝載、部署應用程式的選擇，從�
 
 # 結論
 
-前文已經針對三個服務做了簡單的介紹以及比較，若想要看更完整的比較表格可以前往 Azure 官網查詢 ([http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/](http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/))。最後再用下面兩張圖作為總結，讓讀者能對三個服務定位的差異有更深刻的印象，他們之間就好比自己買房、租房子或是住旅館的差異，相當貼切。
+前文已經針對三個服務做了簡單的介紹以及比較，若想要看更完整的比較表格可以參考官網的文章：[Azure 網站、雲端服務與虛擬機器之比較](http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/)。最後用下面兩張圖作為總結，讓讀者能對三個服務定位的差異有更深刻的印象，他們之間就好比自己「買房」、「租房子」或是「住旅館」的差異，可以說是相當貼切！
 
 ![Comparison](https://raw.githubusercontent.com/hungys/azure-blog/master/media/04-compare-vm-cloudservices-websites/comparison-3.png)
 
