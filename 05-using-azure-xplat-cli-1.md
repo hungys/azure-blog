@@ -136,7 +136,7 @@ Now using node v0.10.32
 不過需要注意的是 `nvm use` 只對當前的 shell 有效，如果要設定預設版本的話則需要使用 `nvm alias default <version>` 的指令：
 
 ```
-$ nvm alias default 0.10.32
+$ nvm alias default v0.10.32
 default -> v0.10.32
 ```
 
