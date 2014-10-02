@@ -266,3 +266,4 @@ info:    account set command OK
 - Node.js 安裝與版本切換教學 (for MAC), [http://icarus4.logdown.com/posts/175092-nodejs-installation-guide](http://icarus4.logdown.com/posts/175092-nodejs-installation-guide)
 - 如何在 Mac OSX Lion 上設定 node.js 的開發環境, [http://dreamerslab.com/blog/tw/how-to-setup-a-node-js-development-environment-on-mac-osx-lion/](http://dreamerslab.com/blog/tw/how-to-setup-a-node-js-development-environment-on-mac-osx-lion/)
 - 安裝與設定 Azure 跨平台命令列介面, [http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/)
+- Microsoft Azure Cross Platform Command Line, [https://github.com/Azure/azure-sdk-tools-xplat](https://github.com/Azure/azure-sdk-tools-xplat)
