@@ -69,7 +69,7 @@ info:    site create command OK
 
 此時我們打開瀏覽器輸入對應的網站，以筆者的範例為例就是「ironman-test.azurewebsites.net」，可以發現該網站確實已經在一行指令之內建立起來了。
 
-![Websites](https://raw.githubusercontent.com/hungys/azure-blog/master/media/06-using-azure-xplat-cli-2/website-created.png)
+![Websites](https://raw.githubusercontent.com/hungys/azure-blog/master/media/06-using-azure-xplat-cli-2/websites-created.png)
 
 假如我們想要 `azure site create` 這個指令的設定有更深入的了解，可以在後面加上 `-h` 或 `--help` 來調出 CLI 的說明：
 
@@ -199,7 +199,7 @@ info:    Executing command site log tail
 
 ## 調整網站規模
 
-Azure 網站服務本身提供了多種規模可以依照需求做選擇，除了免費、基本、標準三種模式之外，還可以設定執行個體的數量及大小，假如今天預期到網站會有大量的流量，我們希望將剛剛的 ironman-test 網站提升到標準模式，並開啟 3 個「4 核心、7 GB 記憶體」的實體來服務：
+Azure 網站服務本身提供了多種規模可以依照需求做選擇，除了免費、基本、標準三種模式之外，還可以設定執行個體的數量及大小，假如今天預期到網站會有大量的流量，我們希望將剛剛的 ironman-test 網站提升到標準模式，並開啟 3 個「Large：4 核心、7 GB 記憶體」的實體來服務：
 
 ```
 $ azure site scale mode standard ironman-test
@@ -245,3 +245,8 @@ data:    Secondary 5ScrvlR05h3xxxxxxxxoGBV/VVKPcxxxxxxxxAD5LV9HG1ZLT0KZ1Jwu/9m1/
 info:    storage account keys list command OK
 ```
 這時候便會有種搥心肝的感覺，原來不需要繁雜的登入及操作，甚至等待有點緩慢的 Mangement Portal，這也是筆者刻意選在這時候向大家介紹 Azure 所提供的跨平台 CLI 的原因。CLI 與 GUI 的操作本身各有優勢與劣勢，雖然打指令看起來很帥很專業，但有時候其實並不會有更高的效率，這點就留給讀者自行摸索了！
+
+# 參考資料
+
+- Microsoft Azure Cross Platform Command Line, [https://github.com/Azure/azure-sdk-tools-xplat](https://github.com/Azure/azure-sdk-tools-xplat)
+- Windows Azure cross-platform command line improvements - Summer 2013, [http://www.jeff.wilcox.name/2013/08/command-line-improvements/](http://www.jeff.wilcox.name/2013/08/command-line-improvements/)
