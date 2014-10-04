@@ -108,9 +108,9 @@ Changes to be committed:
 	new file:   index.html
 ```
 
-此時 index.html 已經加入了 Git 的追蹤，並處於等待被 commit 的階段，在 Git 的世界裡稱為「stage」，而剛剛還沒下 `git add` 指令前則為「unstage」狀態。如果您有多個檔案要加入 Git 控管的話，也可以很懶惰的使用 `git add .` 一次性加入所有檔案，但要注意的是所有檔案都會被加入 Git 追蹤，所以建議還是使用 `git add` 來加入單一檔案或使用 `git add -i` 互動模式來操作會比較保險。
+此時 index.html 已經加入了 Git 的追蹤，並處於等待被 commit 的階段，在 Git 的世界裡稱為「stage」，而剛剛還沒下 `git add` 指令前則為「unstage」狀態。如果您有多個檔案要加入 Git 控管的話，也可以很懶惰的使用 `git add .` 一次性加入所有檔案，但要注意的是所有檔案都會被加入 Git 追蹤，所以**建議還是使用 `git add` 來加入單一檔案或使用 `git add -i` 互動模式**來操作會比較保險。
 
-最後，我們要正式提交這些進入 stage 狀態的檔案，這個動作在 Git 中稱為「commit」，在 Git 底層的實作上會建立一個節點，這會是未來追蹤或回溯很重要的參考依據。若要提交 (commit) 程式碼，可以使用 1git commit` 指令，但它會開啟一個新的檔案要您輸入這次 commit 的註解，一般來說筆者比較習慣使用單行的指令來完成：
+最後，我們要正式提交這些進入 stage 狀態的檔案，這個動作在 Git 中稱為「commit」，在 Git 底層的實作上會建立一個節點，這會是未來追蹤或回溯很重要的參考依據。若要提交 (commit) 程式碼，可以使用 `git commit` 指令，但它會開啟一個新的檔案要您輸入這次 commit 的註解，一般來說筆者比較習慣使用單行的指令來完成：
 
 ```
 $ git commit -m "Add index.html into repo"
@@ -119,7 +119,7 @@ $ git commit -m "Add index.html into repo"
  create mode 100644 index.html
 ```
 
-後面的 "Add index.html into repo" 就是對於這次 commit 的註解，強烈建議讀者要簡單明瞭但清楚的表達這次 commit 所修改的內容，會有利於日後的版本控管。
+後面的 "Add index.html into repo" 就是對於這次 commit 的註解，**強烈建議讀者要簡單明瞭但清楚的表達這次 commit 所修改的內容**，會有利於日後的版本控管。
 
 到此，我們已經完成了 Git 的基本操作介紹，但 Git 還有一些更進階的使用例如 gitignore、branch 等等，並不是我們這篇的重點，建議讀者可以自行上網 Google 或是閱讀 [Pro Git](http://git-scm.com/book/zh-tw) 這本有繁體中文翻譯的權威教材。
 
@@ -127,7 +127,7 @@ $ git commit -m "Add index.html into repo"
 
 Azure 網站服務本身提供了版本控制的整合，而且可以直接在 Azure 資料中心建立一個 Repository 讓我們將網站上傳上去作為一個 Remote Repository，若要啟用的話我們需要進入 Management Portal，筆者發現 CLI 並沒有相關的指令可以操作。
 
-首先必須進入欲上傳的網站，在 quick glance 的地方點選「Set up deployment from source control」。
+首先必須進入欲上傳的網站，在 quick glance 的地方點選**「Set up deployment from source control」**。
 
 ![Websites dashboard](https://raw.githubusercontent.com/hungys/azure-blog/master/media/07-using-git-on-azure/quick-glance.png)
 
@@ -249,11 +249,15 @@ To https://github.com/hungys/ironman-test.git
  * [new branch]      master -> master
 ```
 
-很快的在 Management Portal 已經看到了剛剛所建立的 commit，打開瀏覽器應該也可以看到對應的內容。最後，我們在 index.html 中加入「GitHub」字樣並再次建立一個 commit 並 push 到 GitHub 上，也可以很快地看到 Portal 上偵測到了 GitHub 上狀態的改變並同時將程式碼同步至網站服務，此時打開瀏覽器應該可以看島剛剛所修改的內容已經生效，這就是所謂「連續部署」的功能。
+很快的在 Management Portal 已經看到了剛剛所建立的 commit，打開瀏覽器應該也可以看到對應的內容。
 
 ![Detect new deployment](https://raw.githubusercontent.com/hungys/azure-blog/master/media/07-using-git-on-azure/github-deployment.png)
 
+最後，我們在 index.html 中加入「GitHub」字樣並再次建立一個 commit 並 push 到 GitHub 上，也可以很快地看到 Portal 上偵測到了 GitHub 上狀態的改變並同時將程式碼同步至網站服務，此時打開瀏覽器應該可以看島剛剛所修改的內容已經生效，這就是所謂「連續部署」的功能。
+
 ![Synced from GitHub](https://raw.githubusercontent.com/hungys/azure-blog/master/media/07-using-git-on-azure/github-continuous-deployment.png)
+
+![Synced from GitHub](https://raw.githubusercontent.com/hungys/azure-blog/master/media/07-using-git-on-azure/websites-from-github.png)
 
 # 同場加映使用 CLI 操作
 
