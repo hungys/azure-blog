@@ -253,7 +253,7 @@ To https://github.com/hungys/ironman-test.git
 
 ![Detect new deployment](https://raw.githubusercontent.com/hungys/azure-blog/master/media/07-using-git-on-azure/github-deployment.png)
 
-最後，我們在 index.html 中加入「GitHub」字樣並再次建立一個 commit 並 push 到 GitHub 上，也可以很快地看到 Portal 上偵測到了 GitHub 上狀態的改變並同時將程式碼同步至網站服務，此時打開瀏覽器應該可以看島剛剛所修改的內容已經生效，這就是所謂「連續部署」的功能。
+最後，我們在 index.html 中加入「GitHub」字樣並再次建立一個 commit 並 push 到 GitHub 上，也可以很快地看到 Portal 上偵測到了 GitHub 上狀態的改變並同時將程式碼同步至網站服務，此時打開瀏覽器應該可以看到剛剛所修改的內容已經生效，這就是所謂「連續部署」的功能。
 
 ![Synced from GitHub](https://raw.githubusercontent.com/hungys/azure-blog/master/media/07-using-git-on-azure/github-continuous-deployment.png)
 
