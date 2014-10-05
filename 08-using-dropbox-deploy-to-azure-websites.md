@@ -58,7 +58,7 @@ Day 8: 使用 Dropbox 發佈專案至 Azure Web Sites
 
 ![Step10](https://raw.githubusercontent.com/hungys/azure-blog/master/media/08-using-dropbox-deploy-to-azure-websites/step-10-deploying.png)
 
-![Step11](step-11-deployed.png)
+![Step11](https://raw.githubusercontent.com/hungys/azure-blog/master/media/08-using-dropbox-deploy-to-azure-websites/step-11-deployed.png)
 
 最後打開瀏覽器連到我們所建立的網站後，便可以看到剛剛所編輯的內容已經順利部署至網站服務中了。
 
