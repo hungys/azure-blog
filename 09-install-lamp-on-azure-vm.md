@@ -5,15 +5,15 @@ Day 9: 在 Azure 上架設 Linux VM 及 LAMP 服務
 
 ![LAMP](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/lamp-logo.png)
 
-LAMP 這個名詞大家應該不陌生，其實就是 Linux + Apache + MySQL + PHP 的簡稱，因為許多人使用這樣的組合因而得名，而目前許多中小型服務也是基於這樣的架構。另外，網路上關於 LAMP 的資源相當多，所以大多數初學者也都會使用這樣的組合來學習架設動態網站。本文將會帶領讀者在 Azure 上使用 IaaS 服務建立一台 Linux 的虛擬機器，並在上面建置 LAMP 的環境。
+LAMP 這個名詞大家應該不陌生，其實就是 **Linux + Apache + MySQL + PHP** 的簡稱，因為許多人使用這樣的組合因而得名，而目前許多中小型服務也是基於這樣的架構。另外，網路上關於 LAMP 的資源相當多，所以大多數初學者也都會使用這樣的組合來學習架設動態網站。本文將會帶領讀者在 Azure 上使用 IaaS 服務建立一台 Linux 的虛擬機器，並在上面建置 LAMP 的環境。
 
 # 使用 Management Portal 圖形化界面
 
-若要在 Azure 上建立一台虛擬機器最直覺的方式便是透過 Management Portal，這部分的操作由於相當簡單，筆者並不打算一步一步細講，重點會著重在使用 CLI 來操作相關指令。在 Portal 中依序點選「New」>「Compute」>「Virtual Machine」>「Quick Create」，從這裡就可以直接選擇微軟事先準備好的 Image 來安裝，在接下來的內容將會以 Ubuntu 為例。
+若要在 Azure 上建立一台虛擬機器最直覺的方式便是透過 Management Portal，這部分的操作由於相當簡單，筆者並不打算一步一步細講，重點會著重在使用 CLI 來操作相關指令。在 Portal 中依序點選**「New」**>**「Compute」**>**「Virtual Machine」**>**「Quick Create」**，從這裡就可以直接選擇微軟事先準備好的 Image 來安裝，在接下來的內容將會以 Ubuntu 為例。
 
 ![Quick Create](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/quick-create.png)
 
-如果在 Quick Create 的地方沒有找到想要使用的映像檔，可以選擇從「From Gallery」來選擇欲安裝的作業系統，裡面除了今天要使用到的 Ubuntu 之外，也有 CentOS-based 及 SUSE 等 Linux 選擇，當然也包括了各式 Windows Server 映像檔甚至是有預裝軟體的作業系統等等。
+如果在 Quick Create 的地方沒有找到想要使用的映像檔，可以選擇從**「From Gallery」**來選擇欲安裝的作業系統，裡面除了今天要使用到的 Ubuntu 之外，也有 CentOS-based 及 SUSE 等 Linux 選擇，當然也包括了各式 Windows Server 映像檔甚至是有預裝軟體的作業系統等等。
 
 ![From Gallery](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/from-gallery.png)
 
@@ -40,7 +40,7 @@ data:    b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140
 
 中間一長串就是 Image 的名稱，稍後可以透過這個名稱來建立 VM，在此我們將選擇最新的版本 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140927-en-us-30GB` 來安裝使用。
 
-要建立一台全新的虛擬機器可以透過 `azure vm create` 的指令來達成，並依序需要「Host name」、「Image name」及「Username」三個參數。另外，雖然文件中並沒有提到「location」是必要的，但若沒有設定好地區的話會出現失敗訊息。最後要特別注意的是，由於 Linux VM 預設沒有開啟 SSH 的功能，請務必加上 `--ssh` 的選項，否則等會會無法連線進入該 VM。其餘設定請透過 `--help` 自行查詢。
+要建立一台全新的虛擬機器可以透過 `azure vm create` 的指令來達成，並依序需要「Host name」、「Image name」及「Username」三個參數。另外，雖然文件中並沒有提到「location」是必要的，但若沒有設定好地區的話會出現失敗訊息。最後要特別注意的是，由於 Linux VM 預設沒有開啟 SSH 的功能，請務必加上 `--ssh` 的選項，否則等會會無法連線進入該 VM。其餘細部設定請透過 `--help` 自行查詢。
 
 ```
 $ azure vm create ironman-lamp b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140927-en-us-30GB ironman --location "East Asia" --ssh
@@ -58,7 +58,7 @@ info:    vm create command OK
 
 下完指令後稍待片刻，Azure 就會將一台全新裝有 Ubuntu 14.04 的 VM 部署在東亞的資料中心，過程中可以依序看到還自動建立了一個雲端服務以及儲存 VHD 用的儲存體。
 
-建立完成之後，在此要向讀者說明，剛建立起來的 VM 會封鎖所有對內的連線，除了因為我們剛剛有下 `--ssh` 的選項所以已經幫我們打開 port 22。若要查詢目前所有開放的 endpoint，可以透過 `azure vm endpoint list` 的指令：
+建立完成之後，在此要向讀者說明，剛建立起來的 VM 會封鎖所有對內的連線，除了因為我們剛剛有下 `--ssh` 的選項所以已經幫我們預設打開 port 22。若要查詢目前所有開放的 endpoint，可以透過 `azure vm endpoint list` 的指令：
 
 ```
 $ azure vm endpoint list ironman-lamp
@@ -140,15 +140,17 @@ echo "Hello LAMP!"
 $ sudo apt-get install phpmyadmin
 ```
 
-要特別注意的是第一個畫面，請記得用**「空白鍵」**選取「apache2」，這個步驟相當重要，否則沒辦法正確設定 phpMyAdmin 與 Apache 之間的關聯。
+要特別注意的是第一個畫面，請記得用**「空白鍵」**選取**「apache2」**，這個步驟相當重要，否則沒辦法正確設定 phpMyAdmin 與 Apache 之間的關聯。
 
 ![phpMyAdmin install](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/phpmyadmin-install.png)
 
-安裝完成後，在瀏覽器輸入「http://ironman-lamp.cloudapp.net/phpmyadmin」，用我們安裝 LAMP 時所設定的 root 帳戶登入便可以開始管理我們的 MySQL 資料庫囉！
+安裝完成後，在瀏覽器輸入「http://ironman-lamp.cloudapp.net/phpmyadmin」，並用我們安裝 LAMP 時所設定的 root 帳戶登入便可以開始管理我們的 MySQL 資料庫囉！
 
 ![phpMyAdmin login](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/phpmyadmin-login.png)
 
 ![phpMyAdmin](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/phpmyadmin-index.png)
+
+如果讀者還有時間的話，可以試這在剛剛安裝的 LAMP 機器上動手安裝 WordPress，可以順便體驗一下從 IaaS 來建立一個部落格系統，與直接使用 Azure Websites 搭配 Gallery 所需的時間之差別。
 
 # 參考資料
 
