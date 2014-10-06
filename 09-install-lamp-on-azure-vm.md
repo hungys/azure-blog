@@ -86,7 +86,7 @@ Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-36-generic x86_64
 
 # 安裝 LAMP 服務
 
-接下來，我們要在 Ubuntu 中安裝 Apache, MySQL 以及 PHP。如果讀者打算使用 apt-get 來分別安裝美個套件的話，可以使用下列指令：
+接下來，我們要在 Ubuntu 中安裝 Apache, MySQL 以及 PHP。如果讀者打算使用 apt-get 來分別安裝每個套件的話，可以使用下列指令：
 
 ```
 $ sudo apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-auth-mysql libapache2-mod-php5 php5-xsl php5-gd php-pear
@@ -111,7 +111,7 @@ sudo tasksel install lamp-server
 
 ![LAMP Setup](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/lamp-setup-2.png)
 
-安裝完成後打開瀏覽器輸入「http://ironman-lamp.cloudapp.net/」，會發現沒有任何回應，原因是我們剛剛曾經跟讀者提到過，Azure 預設會擋掉特殊規則之外的所有連線，所以我們需要透過 `azure vm endpoint` 的指令來設定允許 TCP port 80 的連線，別忘了請先離開 VM 的終端機：
+安裝完成後打開瀏覽器輸入「[http://ironman-lamp.cloudapp.net/](http://ironman-lamp.cloudapp.net/)」，會發現沒有任何回應，原因是我們剛剛曾經跟讀者提到過，Azure 預設會擋掉特殊規則之外的所有連線，所以我們需要透過 `azure vm endpoint` 的指令來設定允許 TCP port 80 的連線，別忘了請先離開 VM 的終端機：
 
 ```
 $ azure vm endpoint create ironman-lamp 80 --endpoint-name HTTP --endpoint-protocol tcp
@@ -134,7 +134,7 @@ echo "Hello LAMP!"
 ?>
 ```
 
-此時，打開瀏覽器若文字有順利印出，就代表我們的 PHP 有正常運作囉！如果讀者還有興趣驗證 MySQL 是否有安裝成功，可以透過 apt-get 先安裝 phpMyAdmin：
+此時，打開瀏覽器若有順利印出「Hello LAMP!」，就代表我們的 PHP 有正常運作囉！如果讀者還有興趣驗證 MySQL 是否有安裝成功，可以透過 apt-get 先安裝 phpMyAdmin：
 
 ```
 $ sudo apt-get install phpmyadmin
@@ -144,7 +144,7 @@ $ sudo apt-get install phpmyadmin
 
 ![phpMyAdmin install](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/phpmyadmin-install.png)
 
-安裝完成後，在瀏覽器輸入「http://ironman-lamp.cloudapp.net/phpmyadmin」，並用我們安裝 LAMP 時所設定的 root 帳戶登入便可以開始管理我們的 MySQL 資料庫囉！
+安裝完成後，在瀏覽器輸入「[http://ironman-lamp.cloudapp.net/phpmyadmin](http://ironman-lamp.cloudapp.net/phpmyadmin)」，並用我們安裝 LAMP 時所設定的 root 帳戶登入便可以開始管理我們的 MySQL 資料庫囉！
 
 ![phpMyAdmin login](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/phpmyadmin-login.png)
 
