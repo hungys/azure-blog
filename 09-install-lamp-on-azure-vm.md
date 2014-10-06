@@ -150,7 +150,9 @@ $ sudo apt-get install phpmyadmin
 
 ![phpMyAdmin](https://raw.githubusercontent.com/hungys/azure-blog/master/media/09-install-lamp-on-azure-vm/phpmyadmin-index.png)
 
-如果讀者還有時間的話，可以試這在剛剛安裝的 LAMP 機器上動手安裝 WordPress，可以順便體驗一下從 IaaS 來建立一個部落格系統，與直接使用 Azure Websites 搭配 Gallery 所需的時間之差別。
+# 後記
+
+本文帶領讀者使用 CLI 指令界面來建立與管理一台 Linux 虛擬機器，並在上面安裝 PHP 動態網頁經常使用到的 LAMP 組合，若讀者還有時間的話，可以試這在剛剛安裝的 LAMP 機器上動手安裝 WordPress，可以順便體驗一下從 IaaS 來建立一個部落格系統，與直接使用 Azure Websites 搭配 Gallery 所需的時間之差別。
 
 # 參考資料
 
