@@ -33,7 +33,7 @@ $ sudo apt-get update
 $ sudo apt-get install nginx
 ```
 
-安裝完成之後 nginx 會預設直接啟動，這時可以使用 `curl` 指令或直接開啟瀏覽器進入「http://ironman-nginx.cloudapp.net」，應該就會看到預設的頁面。
+安裝完成之後 nginx 會預設直接啟動，這時可以使用 `curl` 指令或直接開啟瀏覽器進入「[http://ironman-nginx.cloudapp.net](http://ironman-nginx.cloudapp.net)」，應該就會看到預設的頁面。
 
 ![nginx default page](https://raw.githubusercontent.com/hungys/azure-blog/master/media/10-install-nginx-mongodb-on-azure/nginx-default-page.png)
 
@@ -219,7 +219,7 @@ Successfully added user: {
 }
 ```
 
-可以看到在 Document 中是用 **BSON (Binary JSON)** 的方式來儲存資料，其實與我們所熟悉的 JSON 相當類似，關於支援的型別以其他細節請操考官方的[說明文件](http://docs.mongodb.org/manual/reference/bson-types/)。而**「_id」**這個欄位的值在 Collection 中必須是唯一的，以作為 Primary Key，如果在新增時沒有給定一個值，預設會自動填入一個個帶有時間戳記得 ObjectId。而多個 Document 集合起來則稱為一個**「Collection」**，對應到傳統 RDBMS 的「Table」。
+可以看到在 Document 中是用 **BSON (Binary JSON)** 的方式來儲存資料，其實與我們所熟悉的 JSON 相當類似，關於支援的型別以其他細節請操考官方的[說明文件](http://docs.mongodb.org/manual/reference/bson-types/)。而**「_id」**這個欄位的值在 Collection 中必須是唯一的，以作為 Primary Key，如果在新增時沒有給定一個值，預設會自動填入一個個帶有時間戳記的 ObjectId 物件。而多個 Document 集合起來則稱為一個**「Collection」**，對應到傳統 RDBMS 的「Table」。
 
 # MongoDB 管理方式
 

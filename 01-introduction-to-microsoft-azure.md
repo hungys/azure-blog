@@ -16,7 +16,7 @@ Day 1: 認識 Microsoft Azure
 - 在 Azure 上使用 Git 分散式版本控制
 - 使用 Dropbox 發佈專案至 Azure Web Sites
 - 在 Azure 上架設 Linux VM 及 LAMP 服務
-- 在 Azure VM 上架設 nginx、mongodb 服務
+- 在 Azure VM 上架設 nginx、MongoDB 服務
 - 在 Azure VM 上使用 gunicorn 部署 Flask 網站
 - 在 Azure 上快速建置 MongoDB 託管服務
 - 在 Azure 上快速建置 Redis Cache 服務
