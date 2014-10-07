@@ -65,35 +65,35 @@ $ sudo service nginx restart
 
 在 Ubuntu 底下，我們一樣可以透過 apt-get 來安裝，不過必須先將必要的資訊寫入 source list 裡。關於其他平台的安裝方式，可以參考[官方網站](http://docs.mongodb.org/manual/)更詳細的說明。
 
-1. 匯入套件管理系統所需的 public key：
+首先需要匯入套件管理系統所需的 public key：
 
-	```
-	$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-	```
+```
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+```
 	
-2. 將 MongoDB 加入 apt 的來源清單：
+接著將 MongoDB 加入 apt 的來源清單：
 
-	```
-	$ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-	```
+```
+$ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+```
 	
-3. 更新套件資料庫：
+記得更新套件資料庫：
 
-	```
-	$ sudo apt-get update
-	```
+```
+$ sudo apt-get update
+```
 	
-4. 安裝 MongoDB：
+最後則是透過 `apt-get` 來安裝 MongoDB：
 
-	```
-	$ sudo apt-get install -y mongodb-org
-	```
+```
+$ sudo apt-get install -y mongodb-org
+```
 	
-	若有指定安裝版本的需求，以 2.6.1 版為例，可以使用以下指令：
+若有指定安裝版本的需求，以 2.6.1 版為例，可以使用以下指令：
 
-	```
-	$ sudo apt-get install -y mongodb-org=2.6.1 mongodb-org-server=2.6.1 mongodb-org-shell=2.6.1 mongodb-org-mongos=2.6.1 mongodb-org-tools=2.6.1
-	```
+```
+$ sudo apt-get install -y mongodb-org=2.6.1 mongodb-org-server=2.6.1 mongodb-org-shell=2.6.1 mongodb-org-mongos=2.6.1 mongodb-org-tools=2.6.1
+```
 	
 # MongoDB 基本設定
 
