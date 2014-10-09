@@ -93,7 +93,7 @@ True
 [u'product', u'system.indexes']
 ```
 
-接下來連接到 product collection 並透過 `find_one` 來獲取一筆 document：
+接下來連接到 product collection 並透過 `find_one()` 來獲取一筆 document：
 
 ```
 >>> products = db.product
