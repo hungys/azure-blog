@@ -3,9 +3,11 @@ Day 12: 在 Azure 上快速建置 MongoDB 託管服務
 
 # 前言
 
-我們在最近兩篇文章中帶領讀者從建立 Linux VM 到安裝 MongoDB，是基於 Azure 所提供的 IaaS 服務來建置的，優點在於可以很彈性的對 VM 進行設定，當相反的，如果您本身沒有這麼高度客製、管理的需求，反而產生了維運 VM 的負擔。於是，Azure 在去年正式宣布與 mongolab 合作推出 MongoDB-as-a-service 的服務，是一個屬於 SaaS 層級的服務，而在今年也面向企業推出了 Enterprise 的版本，這些機器都是由 mongolab 以及 Azure 所負責管理的，開發者只需專注在應用程式的開發即可，可以說相當方便，本文將帶領讀者透過 Azure Store 來快速建置 MongoDB 託管服務。
+我們在最近兩篇文章中帶領讀者從建立 Linux VM 到安裝 MongoDB，是基於 Azure 所提供的 IaaS 服務來建置的，優點在於可以很彈性的對 VM 進行設定，當相反的，如果您本身沒有這麼高度客製、管理的需求，反而產生了維運 VM 的負擔。於是，Azure 在去年正式宣布與 [MongoLab](https://mongolab.com/) 合作推出**「MongoDB-as-a-service」**的服務，是一個屬於 SaaS 層級的服務，而在今年也面向企業推出了 Enterprise 的版本，這些機器都是由 mongolab 以及 Azure 所負責管理的，開發者只需專注在應用程式的開發即可，可以說相當方便，本文將帶領讀者透過 Azure Store 來快速建置 MongoDB 託管服務。
 
 # 從市集購買 MongoDB 服務
+
+![MongoLab](https://raw.githubusercontent.com/hungys/azure-blog/master/media/12-mongodb-managed-service-on-azure/mongolab-logo.png)
 
 Azure 官方在近期開始與一些第三方廠商合作，透過 Azure Management Portal 的市集來販售/提供這些第三方服務，而且許多服務也提供了開發測試時期足夠的免費額度給消費者。如果您還沒有註冊 Azure 帳號，也可以從[官方網站](http://azure.microsoft.com/zh-tw/gallery/store/)來瀏覽目前市集所提供的服務。
 
