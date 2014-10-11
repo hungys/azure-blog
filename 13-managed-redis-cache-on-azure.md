@@ -149,6 +149,90 @@ OK
 
 稍早我們也提到過，Redis 除了基本的字串之外，還提供了對清單 (List)、雜湊 (Hash) 等其他資料結構儲存的支援，由於不在本文所要介紹的範疇之內，所以讀者可以自行前往 Redis 官方網站的 [Commands](http://redis.io/commands) 頁面查詢相關指令。
 
+# 使用 Python 操作 Redis
+
+本文的最後，我們使用一個範例來示範如何使用 Python 來操作 Redis，首先請透過 `pip` 來安裝 redis-py：
+
+```
+(venv)$ pip install redis
+```
+
+這個範例將會以先前與讀者介紹過的 Flask 為基礎，在 REST API 中增加 cache 的機制，若 cache hit 則直接回傳 Redis 中的快取資料，相反的若 cache miss 則從 MongoDB 中獲取資料後，先將資料寫入 Redis 並設定快取 12 小時 (即 43200 秒)，最後再回傳給使用者，範例的原始碼如下：
+
+```
+from flask import Flask, make_response
+from werkzeug.contrib.fixers import ProxyFix
+import pymongo
+import json
+import redis
+
+app = Flask(__name__)
+db = pymongo.Connection('localhost', 27017)
+cache = redis.StrictRedis(host='ironmantest.redis.cache.windows.net', port=6379, db=0, 
+                        password='<YOUR PRIMARY KEY HERE>')
+
+@app.route('/api/phonenumber/<e164>')
+def get_number_info(e164):
+    result = {}
+
+    info = cache.get(str(e164))
+    if info is not None:
+        result["info"] = json.loads(info)
+        result["source"] = "cache"
+        result["msg"] = "cache hit"
+    else:
+        collection = db.azure.phonenumbers
+        info = collection.find_one({"e164": str(e164)}, {"_id": 0})
+        if info is not None:
+            result["info"] = info
+            result["source"] = "db"
+            result["msg"] = "cache miss"
+            cache.setex(str(e164), 43200, json.dumps(result["info"]))
+        else:
+            result["msg"] = "notfound"
+
+    resp = make_response(json.dumps(result), 200)
+    resp.headers["Content-Type"] = "application/json"
+
+    return resp
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
+if __name__ == '__main__':
+    app.run()
+```
+
+從上面的範例程式碼可以看到，redis-py 的基本操作 API 與 redis-cli 中的指令很類似：
+
+- 獲取資料：`get(name)`
+- 新增資料：`set(name)`
+- 新增資料並設定到期時間：`setex(name, time, value)`
+
+假設在還沒有任何快取的情況下對 `/api/phonenumber/886277314096` 做 query，將會得到：
+
+```
+{ "info" : { "countrycode" : "tw",
+      "e164" : "886277314096",
+      "name" : "SkypeOut"
+    },
+  "msg" : "cache miss",
+  "source" : "db"
+}
+```
+
+因為 Redis 中沒有 cache 存在所以資料是由 MongoDB 所獲取的，此時我們再重新送一次 request 則會得到：
+
+```
+{ "info" : { "countrycode" : "tw",
+      "e164" : "886277314096",
+      "name" : "SkypeOut"
+    },
+  "msg" : "cache hit",
+  "source" : "cache"
+}
+```
+
+這次因為 cache hit，所以並沒有建立 MongoDB 的連線做查詢，以上就是簡單的範例示範使用 Python 來操作 Redis。
+
 # 後記
 
 本文透過簡短篇幅介紹如何在 Azure 上建置 Redis Cache 服務，而除了最基本的快取用途之外，Redis 也常常用來作為 Session 資料庫的使用，如果您是一個 .NET 網頁開發者的話，Azure Redis Cache 更直接提供了 ASP.NET Session State Provider 的套件可以在 NuGet 下載安裝，只要對 Web.config 做簡單的設定就可以將 Redis 作為 Session 的儲存資料庫，相關設定細節可以參考 [MSDN 文件](http://msdn.microsoft.com/en-us/library/azure/dn690522.aspx)。
