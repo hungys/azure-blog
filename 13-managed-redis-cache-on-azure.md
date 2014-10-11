@@ -11,11 +11,11 @@ Day 13: 在 Azure 上快速建置 Redis Cache 服務
 
 Redis 是由 Pivotal 公司所贊助的一個開源項目，是一種基於記憶體、以 key-value 鍵值對儲存的 in-memory 資料庫。Redis 本身最大的特色除了因為一個基於記憶體的資料庫所以擁有優異的效能之外，它也常被認為是一種儲存資料結構的伺服器，這是因為對於一個 key 值所儲存的 value 可以是字串 (strings)、雜湊 (hashes)、清單 (lists)、資料集 (sets) 或可排序資料集(sorted sets)。
 
-Azure 正式推出以 Redis 為基礎的快取服務除了它本身優異的性能之外，另一個重要的原因便是 Redis 本身在開放原始碼圈相當受到歡迎，所以有相當健全的社群體系。此外，針對各種不同平台或程式語言也都有對應的函式庫可以使用，以 .NET 開發者為例，只需要從 NuGet 下載「StackExchange.Redis」便可以將應用程式與 Redis 做整合，而 Python 也有對應的 [redis-py](https://pypi.python.org/pypi/redis/) 可以使用，更多其它的 client 以及官方所推薦的 driver 可以在 Redis 的[官方網站](http://redis.io/clients)做查詢。
+Azure 正式推出以 Redis 為基礎的快取服務除了它本身優異的性能之外，另一個重要的原因便是 Redis 本身在開放原始碼圈相當受到歡迎，所以有相當健全的社群體系。此外，針對各種不同平台或程式語言也都有對應的函式庫可以使用，以 .NET 開發者為例，只需要從 NuGet 下載「[StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)」便可以將應用程式與 Redis 做整合，而 Python 也有對應的「[redis-py](https://pypi.python.org/pypi/redis/)」可以使用，更多其它的 client 以及官方所推薦的 driver 可以在 Redis 的[官方網站](http://redis.io/clients)做查詢。
 
 # 從 VM 安裝 (IaaS)
 
-若您想要擁有較高的管理權限，可以先在 Azure 上使用 IaaS 服務建立一台 Linux VM，以 Ubuntu 為例，可以透過 `apt-get` 來安裝 Redis：
+若您想要擁有較高的管理權限或較彈性的部署，可以先在 Azure 上使用 IaaS 服務建立一台 Linux VM，再手動安裝 Redis，以 Ubuntu 為例，可以透過 `apt-get` 來安裝：
 
 ```
 $ sudo apt-get install redis-server
