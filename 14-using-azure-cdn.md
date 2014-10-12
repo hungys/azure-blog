@@ -17,7 +17,7 @@ CDN 是 Content delivery network 的縮寫，中文可翻內容傳遞網路。�
 
 # 建立儲存體帳戶
 
-在示範 CDN 設定之前，首先我們先建立一個 Storage 帳戶來存放一些靜態內容，建立的方式相當簡單，只需要在 Management Portal 中點選「New」並選取「Data Service」>「Storage」>「Quick Create」即可。
+在示範 CDN 設定之前，首先我們先建立一個 Storage 帳戶來存放一些靜態內容，建立的方式相當簡單，只需要在 Management Portal 中點選**「New」**並選取**「Data Service」**>**「Storage」**>**「Quick Create」**即可。
 
 ![Create storage account](https://raw.githubusercontent.com/hungys/azure-blog/master/media/14-using-azure-cdn/create-storage-account.png)
 
@@ -43,7 +43,7 @@ Percentage: 100.0% (90.94KB/90.94KB) Average Speed: 90.94KB/S Elapsed Time: 00:0
 
 # 建立 CDN 服務
 
-接下來我們要開始設定 CDN 的服務，同樣在 Management Portal 底下點選「New」並選取「App Service」>「CDN」>「Quick Create」。在此會列出一個您帳戶底下所有 domain 的清單，請選擇剛剛所建立的儲存體服務所位在的域名。
+接下來我們要開始設定 CDN 的服務，同樣在 Management Portal 底下點選**「New」**並選取**「App Service」**>**「CDN」**>**「Quick Create」**。在此會列出一個您帳戶底下所有 domain 的清單，請選擇剛剛所建立的儲存體服務所位在的域名。
 
 ![Create CDN](https://raw.githubusercontent.com/hungys/azure-blog/master/media/14-using-azure-cdn/create-cdn.png)
 
