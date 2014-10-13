@@ -137,6 +137,8 @@ API Management 是 Azure 上還滿新的一個服務，筆者一開始看到覺�
 
 API Management 是一個功能相當完整的服務，若您有將 API expose 給其他客戶的需求，透過這個平台可以很輕鬆地達成許多複雜的管理及原則控制。本文只是很粗略的帶領讀者體驗 Azure 提供的便捷服務，其實在 Dashboard 中還可以看到許多功能，例如可以客製化 Developer Portal，甚至使用 [REST API](http://msdn.microsoft.com/en-us/library/azure/dn776326.aspx) 來建立自己的後台。這項 Azure 的新服務筆者相當推薦大家可以嘗試玩玩看。
 
+關於其他更細節的使用說明，歡迎前往官方網站查閱：[http://azure.microsoft.com/en-us/documentation/services/api-management/](http://azure.microsoft.com/en-us/documentation/services/api-management/)
+
 # 參考資料
 
 - API 管理, [http://azure.microsoft.com/zh-tw/services/api-management/](http://azure.microsoft.com/zh-tw/services/api-management/)
