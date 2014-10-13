@@ -90,7 +90,11 @@ API Management 是 Azure 上還滿新的一個服務，筆者一開始看到覺�
 
 # 建立 API
 
-首先切換到 APIs 分頁，點選**「Add API」**，輸入您的 Web Service 相關資訊便可以將 API 加入 Azure 做管理：
+首先切換到 APIs 分頁，點選**「Add API」**，輸入您的 Web Service 相關資訊便可以將 API 加入 Azure 做管理，假設您的 Web Service 端點是「[https://myapi.cloudapp.net](https://myapi.cloudapp.net)」，希望在「[https://cpbl.azure-api.net/cpbl](https://cpbl.azure-api.net/cpbl)」來提供服務，則需要使用下列設定：
+
+- Web API name: 任意，僅辨識用
+- Web service URL: [https://myapi.cloudapp.net](https://myapi.cloudapp.net)
+- Web API URL suffix: cpbl
 
 ![create-api-01](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/create-api-01.png)
 
@@ -133,11 +137,11 @@ API Management 是 Azure 上還滿新的一個服務，筆者一開始看到覺�
 
 ![test-api-02](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/test-api-02.png)
 
-在 API 頁面中，還很貼心的提供了許多語言的範例程式，讓您可以很快速的來從 Client 端呼叫這些 API。
+在 API 頁面中，還很貼心的提供了包括 C#、PHP、Python、Ruby... 等許多語言的範例程式，讓您可以很快速的來從 Client 端呼叫這些 API。
 
 ![test-api-03](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/test-api-03.png)
 
-接下來，我們點選**「Open Console」**開始測試 API 的使用。在畫面上，我們可以選擇使用特定的產品訂閱來呼叫該 API，以管理者帳戶為例，因為分別訂閱了「Starter」以及「Unlimited」兩個產品，所以可以使用選單來切換使用不同的 Subscription Key。
+接下來，我們點選**「Open Console」**開始測試 API 的使用。在畫面上，我們可以選擇使用特定的產品訂閱來呼叫該 API，以管理者帳戶為例，因為分別訂閱了「Starter」以及「Unlimited」兩個產品，所以可以使用選單來切換使用不同的 Subscription Key。在 API Management 服務中，這個 Key 是以名為 `subscription-key` 的 Query String 來傳送的，它用來代表一個訂閱。
 
 ![test-api-04](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/test-api-04.png)
 
@@ -145,13 +149,13 @@ API Management 是 Azure 上還滿新的一個服務，筆者一開始看到覺�
 
 ![test-api-05](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/test-api-05.png)
 
-如果我們持續使用「Starter」的 Key 來發送 request 的話，可以發現很快的已經達到了呼叫的頻率上限，回傳了**「429 Too Many Requests」**。我們完全沒有對我們的 API 做任何修改，單純地透過 API Management 的 Dashboard 就完成了這個功能，實在是相當方便！
+如果我們持續使用「Starter」的 Key 來發送 request 的話，還記得先前提過有每分鐘 5 次呼叫的頻率限制，可以發現很快的已經達到了呼叫上限，所以回傳了**「429 Too Many Requests」**。我們完全沒有對我們的 API 做任何修改，單純地透過 API Management 的 Dashboard 就完成了這個功能，實在是相當方便！
 
 ![test-api-06](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/test-api-06.png)
 
 # 後記
 
-API Management 是一個功能相當完整的服務，若您有將 API expose 給其他客戶的需求，透過這個平台可以很輕鬆地達成許多複雜的管理及原則控制。本文只是很粗略的帶領讀者體驗 Azure 提供的便捷服務，其實在 Dashboard 中還可以看到許多功能，甚至可以客製化 Developer Portal，這項服務筆者相當推薦大家可以嘗試。
+API Management 是一個功能相當完整的服務，若您有將 API expose 給其他客戶的需求，透過這個平台可以很輕鬆地達成許多複雜的管理及原則控制。本文只是很粗略的帶領讀者體驗 Azure 提供的便捷服務，其實在 Dashboard 中還可以看到許多功能，例如可以客製化 Developer Portal，甚至使用 [REST API](http://msdn.microsoft.com/en-us/library/azure/dn776326.aspx) 來建立自己的後台。這項 Azure 的新服務筆者相當推薦大家可以嘗試玩玩看。
 
 # 參考資料
 
