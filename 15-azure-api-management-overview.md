@@ -52,27 +52,7 @@ API Management 是 Azure 上還滿新的一個服務，筆者一開始看到覺�
 
 	![dashboard-overview-03](https://raw.githubusercontent.com/hungys/azure-blog/master/media/15-azure-api-management-overview/dashboard-overview-03.png)
 	
-	接續產品管理，在**「Policies」**中的原則便是對應到剛剛提到的「用量限制」，除了可以對產品賦予 usage quota 之外，甚至可以設定相關功能的權限，目前所提供的原則清單如下：
-	
-	* Allow cross domain calls
-	* Authenticate with Basic
-	* Authenticate with client certificate
-	* Convert JSON to XML
-	* Convert XML to JSON
-	* CORS
-	* Find and replace string in body
-	* Get from cache
-	* JSONP
-	* Limit call rate
-	* Mask URLs in content
-	* Restrict caller IPs
-	* Rewrite URI
-	* Set HTTP header
-	* Set query string parameter
-	* Set usage quota
-	* Store to cache
-	
-	假如沒有 API Management，要達到這些需求勢必得花上好一番功夫，但在 Azure 中已經為您寫好了絕大部分會使用到的原則管理。
+	接續產品管理，在**「Policies」**中的原則便是對應到剛剛提到的「用量限制」，除了可以對產品賦予 usage quota 之外，甚至可以設定相關功能的權限，例如跨網域呼叫、JSON 轉換、是否可以設定 header 或 query string 等等，假如沒有 API Management，要達到這些需求勢必得花上好一番功夫，但在 Azure 中已經為您寫好了絕大部分會使用到的原則管理。
 	
 4. 使用者管理 (Users/Groups)
 
