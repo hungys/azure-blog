@@ -14,7 +14,7 @@ Day 1: 認識 Microsoft Azure
 - 使用跨平台 CLI 管理 Azure (1)
 - 使用跨平台 CLI 管理 Azure (2)
 - 在 Azure 上使用 Git 分散式版本控制
-- 使用 Dropbox 發佈專案至 Azure Web Sites
+- 使用 Dropbox 發佈專案至 Azure Websites
 - 在 Azure 上架設 Linux VM 及 LAMP 服務
 - 在 Azure VM 上架設 nginx、MongoDB 服務
 - 在 Azure VM 上使用 gunicorn 部署 Flask 網站
@@ -23,8 +23,8 @@ Day 1: 認識 Microsoft Azure
 - 在 Azure 上使用內容傳遞網路 (CDN)
 - Azure API Management 服務簡介
 - 在 Azure VM 上安裝 IPython Notebook
-- 在 Azure Web Sites 上設定 Python 執行環境
-- 部署 Django 網站 - 以 VM 及 Azure Web Sites 為例
+- 在 Azure Websites 上設定 Python 執行環境
+- 部署 Django 網站 - 以 VM 及 Azure Websites 為例
 - 使用 Azure SDK for Python 管理 Azure 服務
 - 使用 Python 操作 Azure Blob Service
 - 使用 Python 操作 Azure Table Service
