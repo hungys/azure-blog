@@ -1,4 +1,4 @@
-Day 8: 使用 Dropbox 發佈專案至 Azure Web Sites
+Day 8: 使用 Dropbox 發佈專案至 Azure Websites
 =====================================
 
 # 前言
