@@ -74,7 +74,7 @@ Day 18: 部署 Django 網站 - 以 VM 及 Azure Websites 為例
 
 # 從 Gallery 建立
 
-最後，也是最簡單的一種方法，是透過 Azure Websites 的 Gallery 來建立 Django 網站，您只需要在建立網站時選擇「From Gallery」，便可以在「App Framework」分類底下找到 Django，不過目前官方僅支援到 1.4 版。透過這個方法建立網站後，您不需要再做任何其他設定，便可以將 Django 網站部署在 Websites 服務上。
+最後，也是最簡單的一種方法，是透過 Azure Websites 的 Gallery 來建立 Django 網站，您只需要在建立網站時選擇**「From Gallery」**，便可以在**「App Framework」**分類底下找到 Django，不過目前官方僅支援到 1.4 版。透過這個方法建立網站後，您不需要再做任何其他設定，便可以將 Django 網站部署在 Websites 服務上。
 
 ![From gallery](https://raw.githubusercontent.com/hungys/azure-blog/master/media/18-deploy-django-on-azure-vm-and-websites/from-gallery.png)
 
