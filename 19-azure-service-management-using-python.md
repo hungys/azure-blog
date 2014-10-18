@@ -46,13 +46,13 @@ $ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out my
 $ openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 ```
 
-最後請開啟 Management Portal，在「Settings」頁面中的「Management Certificates」分頁點選「Upload」將剛剛產生好的 cer 檔案上傳到 Portal 上即可完成憑證的設定。
+最後請開啟 Management Portal，在**「Settings」**頁面中的**「Management Certificates」**分頁點選**「Upload」**將剛剛產生好的 cer 檔案上傳到 Portal 上即可完成憑證的設定。
 
 ![Upload cert](https://raw.githubusercontent.com/hungys/azure-blog/master/media/19-azure-service-management-using-python/upload-cert.png)
 
 # 使用服務管理 API
 
-在開始使用 Service Management 的 API 之前，除了憑證之外您還需要取得您的訂閱 ID，這項資訊可以從 Management Portal 中的「Settings」頁面中找到，或是從您的訂閱管理頁面中取得。
+在開始使用 Service Management 的 API 之前，除了憑證之外您還需要取得您的訂閱 ID，這項資訊可以從 Management Portal 中的**「Settings」**頁面中找到，或是從您的訂閱管理頁面中取得。
 
 ![Get Subscription ID](https://raw.githubusercontent.com/hungys/azure-blog/master/media/19-azure-service-management-using-python/subscription-id.png)
 
