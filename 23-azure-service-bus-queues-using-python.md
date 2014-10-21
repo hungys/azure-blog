@@ -11,7 +11,7 @@ Day 23: 使用 Python 操作 Azure Service Bus Queues
 
 Service Bus Queues 是 Azure 中服務匯流排所提供的一種佇列模型，基本上跟先前介紹過的 Queue Storage 有相同的用途，也就是負責不同角色的應用程式間的通訊，並且擁有**先進先出 (FIFO)** 的特性，其中較大的差異在於，Service Bus Queues 能夠確保一則訊息只能由一個取用者接收和處理。
 
-到此讀者一定會產生疑問，那究竟這兩個服務有什麼差異。微軟官方在 [MSDN 文件](http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx)中有針對這個議題做了一些比較以及建議，大體來說 Service Bus Queues 擁有較可靠的基礎架構設計，相較於 Queue Storage 也更能確保訊息之間的先後順序 (也就是 FIFO 的順序)。然而，若用訊息量來做比較的話，Service Bus Queues 僅能支撐 80GB 的訊息量，即便也不是個小數字了，但 Queue Storage 可以支援到最多 200TB 的數量。另外，Service Bus Queues 支援了 long-polling 的取用模式，提供 push-style 的 event-driven API，不過目前僅有 .NET 平台上支援此特性。**總體而言，若您有極高的需求確保佇列的穩定性及訊息之間的先後順序，Service Bus 所提供的佇列會是您的最佳選擇。**
+到此讀者一定會產生疑問，那究竟這兩個服務有什麼差異。微軟官方在 [MSDN 文件](http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx)中有針對這個議題做了一些比較以及建議，大體來說 Service Bus Queues 擁有較可靠的基礎架構設計，相較於 Queue Storage 也更能確保訊息之間的先後順序 (也就是 FIFO 的順序)。然而，若用訊息量來做比較的話，Service Bus Queues 僅能支撐 80GB 的訊息量，即便也不是個小數字了，但 Queue Storage 可以支援到最多 200TB 的數量。另外，Service Bus Queues 支援了 long-polling 的取用模式，提供 push-style 的 [event-driven API](http://msdn.microsoft.com/en-us/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx)，不過目前僅有 .NET 平台上支援此特性。**總體而言，若您有極高的需求確保佇列的穩定性及訊息之間的先後順序，Service Bus 所提供的佇列會是您的最佳選擇。**
 
 # Service Bus Queues API
 
