@@ -7,6 +7,8 @@ Day 22: 使用 Python 操作 Azure Queue Storage Service
 
 # 什麼是 Queue Storage Service?
 
+![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/22-azure-queue-storage-service-using-python/concept.png)
+
 Azure Queue Storage Service 是一種用來儲存大量訊息的服務，每則訊息的大小上限是 **64 KB**，但最多可以儲存到 200 TB 的訊息總量。通常在系統實作上，我們會運用佇列來非同步處理一些比較耗時的動作。
 
 設想您要建立一個類似 Flickr 的相簿服務，當使用者上傳照片至您的服務時，您會需要為使用者產生許多不同大小的縮圖，但這種比較耗時的工作我們不可能在 HTTP 請求時一起處理，所以便可以透過 Queue 來傳遞這個請求，並由另一個程式來處理這些縮圖的工作。

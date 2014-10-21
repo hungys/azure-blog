@@ -7,6 +7,8 @@ Day 20: 使用 Python 操作 Azure Blob Service
 
 # 什麼是 Blob Service?
 
+![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/20-azure-blob-service-using-python/concept.png)
+
 Azure Blob Service 是一個專門用來儲存非結構化的大型二進位物件的服務，而且可以透過 HTTP 或 HTTPS 來存取這些資料，此外，您亦可設定為非公開的儲存容器僅提供內部應用程式來使用。在 Blob Service 中，主要包含三個主要元件，依據層級區分分別為 Account、Container 及 Blob：
 
 - **儲存體帳戶 (Account)**: 一個儲存體帳戶代表一個儲存體，在使用相關 API 時均需要提供該帳戶的名稱以及 Key。

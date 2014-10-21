@@ -7,6 +7,8 @@ Day 21: 使用 Python 操作 Azure Table Service
 
 # 什麼是 Table Service?
 
+![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/21-azure-table-service-using-python/concept.png)
+
 Azure Table Service 是一個被設計來儲存大量結構化資料，是一種 NoSQL 的實作，所以本身並不具備關聯式資料庫的功能。這種 NoSQL 服務通常被用來儲存大量甚至上看 TB 級的資料，而且不需要做複雜的查詢。在 Table Service 中，主要包含了三個元件，依據層級區分分別為 Account、Table 及 Entity：
 
 - **儲存體帳戶 (Account)**: 一個儲存體帳戶代表一個儲存體，在使用相關 API 時均需要提供該帳戶的名稱以及 Key。
