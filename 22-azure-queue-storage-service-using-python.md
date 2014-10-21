@@ -79,8 +79,10 @@ for message in messages:
 
 若您有取得目前佇列長度的需求，可以呼叫 `get_queue_metadata()` 方法來取得該佇列的中繼資訊，其中一個 Header 值 `x-ms-approximate-messages-count` 即為長度的**近似值**。
 
+```
 queue_metadata = queue_service.get_queue_metadata('myqueue')
 count = queue_metadata['x-ms-approximate-messages-count']
+```
 
 # 刪除 Queue
 
