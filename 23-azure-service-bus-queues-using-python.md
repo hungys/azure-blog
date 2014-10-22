@@ -15,7 +15,7 @@ Service Bus Queues 是 Azure 中服務匯流排所提供的一種佇列模型，
 
 # Service Bus Queues API
 
-Queue Storage Service API 包含在 Azure SDK for Python 當中，相關的原始碼存放在 [azure-sdk-for-python / azure / servicebus](https://github.com/Azure/azure-sdk-for-python/tree/master/azure/servicebus) 底下。在 `servicebusservice.py` 中定義了 ServiceBusService 這個類別，您可以建立一個實體來存取相關的服務，其中包括了在下一篇文章才會接紹到的 pub/sub 模型。
+Service Bus Queues API 包含在 Azure SDK for Python 當中，相關的原始碼存放在 [azure-sdk-for-python / azure / servicebus](https://github.com/Azure/azure-sdk-for-python/tree/master/azure/servicebus) 底下。在 `servicebusservice.py` 中定義了 ServiceBusService 這個類別，您可以建立一個實體來存取相關的服務，其中包括了在下一篇文章才會接紹到的 pub/sub 模型。
 
 # 取得命名空間連線資訊
 
@@ -92,7 +92,7 @@ print(msg.body)
 msg.delete()
 ```
 
-使用這種方式來讀取 Queue 能夠擁有更高的容錯率，能夠避免因為處理過程中發生例外而造成訊息遺漏無法再被處理的問題。在訊息被取出時會將其 lock 住直到成功刪除，而您可以在例外發生的 catch 區段呼叫 Message 的 `unblock()` 方法來解除鎖定以讓其他取用者接收，或是等到逾時候由系統自動解鎖。
+使用這種方式來讀取 Queue 能夠擁有更高的容錯率，能夠避免因為處理過程中發生例外而造成訊息遺漏無法再被處理的問題。在訊息被取出時會將其 lock 住直到成功刪除，而您可以在例外發生的 catch 區段呼叫 Message 的 `unlock()` 方法來解除鎖定以讓其他取用者接收，或是等到逾時候由系統自動解鎖。
 
 # 後記
 
