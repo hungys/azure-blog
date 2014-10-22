@@ -3,13 +3,13 @@ Day 24: 使用 Python 操作 Service Bus Topics/Subscriptions
 
 # 前言
 
-在前一篇文章中，筆者介紹了如何操作 Service Bus Queues，但讀者可能還難以感受到 Service Bus 的威力，而今天要介紹的是 Service Bus 中提供的另一種佇列模型，它是一種以「主題」及「訂閱」為基礎的祝列服務，提供了一對多的訊息傳遞模式。
+在前一篇文章中，筆者介紹了如何操作 Service Bus Queues，但讀者可能還難以感受到 Service Bus 的威力，而今天要介紹的是 Service Bus 中提供的另一種佇列模型，它是一種以「主題」及「訂閱」為基礎的佇列服務，提供了一對多的訊息傳遞模式。
 
 # 什麼是 Service Bus Topics/Subscriptions?
 
 ![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/24-azure-service-bus-topics-subscriptions-using-python/concept.png)
 
-Service Bus 服務匯流排所提供的主題、訂閱機制與服務匯流排佇列最大的差別在於支援了**一對多**的通訊模式，對於單一一個主題，可以有多個訂閱註冊，而這個訂閱可以設定好篩選的條件，當訊息傳送至主題時，每個訂閱都可以取得符合條件的訊息來處理，在這個機制中，每個訂閱就如同一個「虛擬佇列」。
+Service Bus 服務匯流排所提供的主題、訂閱機制與服務匯流排佇列最大的差別在於支援了「**一對多**」的通訊模式，對於單一一個主題，可以有多個訂閱註冊，而這個訂閱可以設定好篩選的條件，當訊息傳送至主題時，每個訂閱都可以取得符合條件的訊息來處理，在這個機制中，每個訂閱就如同一個「虛擬佇列」。
 
 # Service Bus Topics/Subscriptions API
 
