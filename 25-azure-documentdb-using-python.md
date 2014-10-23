@@ -13,10 +13,10 @@ DocumentDB 本身與 MongoDB 相同，是一種 Document-Based 的 NoSQL 服務�
 
 DocumentDB 本身幾乎是基於 REST API 在操作的，所以對於每個 Database、Collection、Document 都有對應的 endpoint，這點在稍待會示範時會讓讀者一探究竟。而官方針對這項服務也提供了包括 .NET、Node.js、JavaScript 及 Python 等四種語言的 SDK 支援：
 
-- .NET SDK: [http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/](http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/)
-- Node.js SDK: [https://www.npmjs.org/package/documentdb](https://www.npmjs.org/package/documentdb)
-- JavaScript SDK: [https://github.com/Azure/azure-documentdb-js](https://github.com/Azure/azure-documentdb-js)
-- Python SDK: [https://pypi.python.org/pypi/pydocumentdb/](https://pypi.python.org/pypi/pydocumentdb/)
+- .NET SDK：[http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/](http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/)
+- Node.js SDK：[https://www.npmjs.org/package/documentdb](https://www.npmjs.org/package/documentdb)
+- JavaScript SDK：[https://github.com/Azure/azure-documentdb-js](https://github.com/Azure/azure-documentdb-js)
+- Python SDK：[https://pypi.python.org/pypi/pydocumentdb/](https://pypi.python.org/pypi/pydocumentdb/)
 
 # 建立 DocumentDB 服務
 
