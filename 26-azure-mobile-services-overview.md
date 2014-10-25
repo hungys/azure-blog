@@ -7,7 +7,7 @@ Day 26: 使用 Azure Mobile Services 快速建立 App 後端服務
 
 # 什麼是 Mobile Services?
 
-![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/26-azure-mobile-services-overview/concept.png)
+![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/26-azure-mobile-services-overview/concept.png)
 
 若讀者對 App 開發有一定的認識的話，應該多多少少有聽過「[Parse](http://www.parse.com)」這個服務，它除了提供了 Parse Push 能夠讓您快速的發送推播通知到各平台外，透過 Parse Core 也能夠快速建立起一個後端的資料庫，並提供了簡單的 API 可以在 Client 端來存取資料。而 Azure Mobile Services 便是微軟基於 Azure 上 PaaS 服務所建立的一種 Backend-as-a-Service，同樣提供了**「資料存取」**、**「身份驗證」**、**「推播通知」**三大項目的支援，而且也面向 Android、iOS、Windows Phone、Windows、HTML 甚至 Xamarin 提供了 SDK 讓您能夠快速開發。
 
@@ -37,7 +37,7 @@ Day 26: 使用 Azure Mobile Services 快速建立 App 後端服務
 
 # 使用者驗證
 
-![Identity](https://raw.githubusercontent.com/hungys/azure-blog/master/26-azure-mobile-services-overview/identity.png)
+![Identity](https://raw.githubusercontent.com/hungys/azure-blog/master/media/26-azure-mobile-services-overview/identity.png)
 
 若您打造的一個 App 本身是一個「服務」，那麼必定會有使用者驗證的設計存在，而近年來受到社群網路發展的影響，許多服務紛紛開始整合 Social Account 的整合，例如直接使用 Facebook 來登入，這些相關的實作 Mobile Services 皆已經提供了直接的 SDK 支援，Facebook、Twitter、Microsoft 或 Google 帳戶都能夠使用相關 API 來實作，不需要再套用各平台的 SDK 或是實作 OAuth 驗證流程。而針對企業客戶，微軟現在也提供了與 Active Directory 整合的支援，讓您可以直接與現有的認證平台整合。
 
@@ -45,7 +45,7 @@ Day 26: 使用 Azure Mobile Services 快速建立 App 後端服務
 
 # 推播通知
 
-![Push](https://raw.githubusercontent.com/hungys/azure-blog/master/26-azure-mobile-services-overview/push.png)
+![Push](https://raw.githubusercontent.com/hungys/azure-blog/master/media/26-azure-mobile-services-overview/push.png)
 
 若您建立的 App 是屬於社交平台服務，或是新聞資訊提供的 App，必定少不了透過 Push 來通知 user 的功能，然而，Google 擁有自己的 GCM 服務、Apple 則是 APNS、微軟自家也有 MPNS 與 WNS 這兩種推播系統，若您要自己在後端實作這些 Push，勢必得花上好一番功夫。Azure Mobile Services 目前提供了對 GCM、APNS、MPNS、WNS 的推播支援，您只需要在 Management Portal 上設定好相關的 token 及 key，便可以直接在後端指令碼使用 `push.apns|gcm|mpns|wns.send{payload}` 簡單的 API 來傳送推播通知至任何平台的終端裝置。
 
@@ -53,11 +53,11 @@ Day 26: 使用 Azure Mobile Services 快速建立 App 後端服務
 
 # 後端指令碼
 
-![Script](https://raw.githubusercontent.com/hungys/azure-blog/master/26-azure-mobile-services-overview/script.png)
+![Script](https://raw.githubusercontent.com/hungys/azure-blog/master/media/26-azure-mobile-services-overview/script.png)
 
 針對前文所提到的服務，為了提供更客製化的支援，您皆可在 Management Portal 中來編輯相關 API 的指令碼，在 Portal 上支援使用 JavaScript 來撰寫伺服器指令碼（即 Node.js），除了基本的 CRUD 新增刪修之外，也可以使用 push API 快速與推播服務整合，也可以使用第三方套件如 SendGrid 來寄送電子郵件。
 
-![Custom API](https://raw.githubusercontent.com/hungys/azure-blog/master/26-azure-mobile-services-overview/custom_api.png)
+![Custom API](https://raw.githubusercontent.com/hungys/azure-blog/master/media/26-azure-mobile-services-overview/custom_api.png)
 
 此外，您也可以在 Portal 上建立自己的 API 端點來提供服務，並且能夠指定各個 API 是否需要帳戶驗證才能被呼叫。而對於一些需要被排程的指令碼，您也可以建立 Scheduled Job 來處理這些需求。
 
