@@ -51,11 +51,11 @@ Azure Notification Hubs 主要專注在群組廣播的推播服務上，讓您�
 
 ![Target by tag](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/target-by-tag.png)
 
-除了單一 tag 之外，您也可以使用**「Tag expression」**來表達所要推送的對象，它可以包含如「&&」、「||」、「!」的邏輯，以下圖為例，您可以使用 `(follows_RedSox || follows_Cardinals) && location_Boston` 這個 expression 來表達「居住在波士頓，並且追蹤紅襪或紅雀」這群使用者：
+除了單一 tag 之外，您也可以使用**「Tag expression」**來表達所要推送的對象，它可以包含如「&&」、「||」、「!」的邏輯運算子，以下圖為例，您可以使用 `(follows_RedSox || follows_Cardinals) && location_Boston` 這個 expression 來表達「居住在波士頓，並且追蹤紅襪或紅雀」這群使用者：
 
 ![Target by tag expression](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/target-by-tag-expression.png)
 
-標籤的使用可以相當彈性，以筆者的使用方法為例，舉凡 `userid:<USER ID>`、`version:<VERSION>`、`installAt:<INSTALL DATE>` ...等等的 tag 在發送推播時都相當實用。
+標籤的使用可以相當彈性，以筆者的使用方法為例，舉凡 `userid:<USER ID>`、`version:<VERSION>`、`installAt:<INSTALL DATE>` ...等等的 tag 在發送推播時都相當實用，但免費及基本方案有限制最多只能有 3000 種 tag，所以使用方法上便要特別留意。
 
 然而，這項功能也有所限制，如果您只使用了「||」這個 OR 運算子，則最多可以在單一 expression 中包含 20 個 tag，除了這個 case 之外，混用 AND、OR、NOT 的情況下最多只能包含 6 個不同的 tag，這點必須留意。
 
@@ -63,11 +63,11 @@ Azure Notification Hubs 主要專注在群組廣播的推播服務上，讓您�
 
 樣板這個功能主要能解決兩個目的，其中第一個是剛剛有提到過的使用單一 payload 格式來對應多種平台，以下圖為例，Windows Phone 裝置及 Android 裝置分別對樣板做了註冊，其中包含了「message」這個共同參數，未來您在推播時，僅需要給定該參數的值即可對有註冊該樣板的用戶推送：
 
-![Template for cross-platform](template-for-xplatform.png)
+![Template for cross-platform](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/template-for-xplatform.png)
 
 另一種使用方式則是個人化或本地化的通知，以下圖的例子來說，某些裝置註冊了「華氏」的樣板，某些裝置則註冊了「攝氏」的樣板，屆時您只需要在 payload 中給定「tempF」及「tempC」參數的值，便可自動對應到這兩種樣板，您也可以使用在多國語系通知的實作上：
 
-![Template for personalization](template-for-personalization.png)
+![Template for personalization](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/template-for-personalization.png)
 
 關於樣板語法的詳細說明可以參考：[http://msdn.microsoft.com/en-us/library/azure/dn530748.aspx](http://msdn.microsoft.com/en-us/library/azure/dn530748.aspx)
 
@@ -94,7 +94,7 @@ Azure Notification Hubs 主要專注在群組廣播的推播服務上，讓您�
 
 # 收費機制
 
-Azure 官方在今年九月份修改了這個服務的收費機制，這點必須要特別注意，因為有用量上及功能上的差別。目前主要分為**「免費」**、**「基本」**、**「標準」**三種層級，它們的差異可摘要如下：
+Azure 官方在今年九月份（2014/9）修改了這個服務的收費機制，這點必須要特別注意，因為有用量上及功能上的差別。目前主要分為**「免費」**、**「基本」**、**「標準」**三種層級，它們的差異可摘要如下：
 
 - 免費：包含單月**一百萬次**的推播量，但不可再付費增加，不限制活躍裝置數，但**最多僅可建立 3000 個不同的 tag，並且每次推播時最多只能推向 10000 個裝置**，若超過的話則會使用隨機的方法推播。
 - 基本：**每月 NT$311** 包含**一千萬次**的推播量，但您可以付費來增加這個限額，與免費方案的最搭差別在於支援了 auto-scaling。
