@@ -15,8 +15,7 @@ Day 27: 使用 Azure Notification Hubs 建立面向數百萬裝置的推播服�
 
 然而，前面所提到的減少 request 次數只是最基本的一步，即便將 request 數量降低至數十萬，要在推送完還是得花上不少時間，所以必須設計好一個堅固的分散式系統來處理這些請求，然而，您可能並非隨時都在大量推送通知，於是便可能會產生運算性能的閒置。
 
-最後一個問題則是錯誤處理，並不是每個通知都能夠成功的發送至裝置端，可能會因為任何因素而發送失敗，甚至是該裝置的 token 已經失效，這部分的處理也必須自己來。綜合以上，除非您的團隊有相當充足的開發人力來處理這些需求，否則使用現有的大量推播服務可能還是比較好的選擇。除了本文要介紹的 Notification Hubs 之外，您亦可以參考如 Parse、Urban Airship 這類的服務，與其他服務相比，Notification Hubs 注重的是建立一個彈性的基礎架構，所以並不像其他服務有提供較為完整的後端 console 能夠操作。
-
+最後一個問題則是錯誤處理，並不是每個通知都能夠成功的發送至裝置端，可能會因為任何因素而發送失敗，甚至是該裝置的 token 已經失效，這部分的處理也必須自己來。綜合以上，除非您的團隊有相當充足的開發人力來處理這些需求，否則使用現有的大量推播服務可能還是比較好的選擇。除了本文要介紹的 Notification Hubs 之外，您亦可以參考如 [Parse](https://www.parse.com/)、[Urban Airship](http://www.urbanairship.com/) 這類的服務，與這些服務相比，Notification Hubs 較注重的是建立一個彈性的基礎架構，所以它並不像其他服務有提供較為完整的後端 console 能夠操作。
 
 # 什麼是 Notification Hubs?
 
@@ -24,7 +23,7 @@ Azure Notification Hubs 主要專注在群組廣播的推播服務上，讓您�
 
 若您使用了 Notification Hubs，所有與 GCM、APNS、WNS... 等推播系統之間的溝通都可以交給 Azure 來處理，您所需要做的事情只是在 Client 端增加向 Notification Hubs 註冊的請求，並且之後要傳送推播皆透過 Notification Hubs 所提供的端點，剩餘的實作都由微軟官方所負責處理，當然甚至包含了推播過程中所產生的錯誤。
 
-![Concept](concept.png)
+![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/concept.png)
 
 整體來說，Notification Hubs 具有以下幾點特色及功能：
 
@@ -38,23 +37,23 @@ Azure Notification Hubs 主要專注在群組廣播的推播服務上，讓您�
 
 在 Notification Hubs 中，每個終端裝置皆需要向 Azure 註冊，而註冊主要分為兩種實作方式，第一種是直接使用官方提供的 SDK 將註冊程序置入在您的 App 中，該 SDK 會直接透過 REST API 向 Notification Hubs 註冊該裝置如圖所示：
 
-![Register from device](register-from-device.png)
+![Register from device](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/register-from-device.png)
 
 而另一種方法則是將註冊的程序寫在您自己的 Server 後端中，如此一來 App 中僅需透過您自己的 API 端點註冊即可，完全不需與 Notification Hubs 互動。而這種做法最大的好處在於裝置的 tag 是從 Server 端註冊的，所以您可以在使用者沒有打開 App 時來修改他的 tag：
 
-![Register from backend](register-from-backend.png)
+![Register from backend](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/register-from-backend.png)
 
 # 標籤與路由
 
-![Tags](tags.png)
+![Tags](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/tags.png)
 
-每個註冊的裝置都可以擁有各自的 tag，而且可以包含兩個以上的 tag，舉個例來說，您可以為 A 球隊的支持者們註冊一個 teamA 的標籤，B 球隊的支持者們則註冊 teamB，屆時若要推送關於 A 球隊的最新比數，直接向 teamA 這個 tag 推送即可。這個 tag 可以是任意長度小於 120 的字串，您甚至可以為每個使用者 ID 皆註冊一個 tag，如此一來便可以達到針對單一使用者推播的需求，如下圖：
+每個註冊的裝置都可以擁有各自的**「Tag」**，而且可以包含兩個以上的 tag，舉個例來說，您可以為 A 球隊的支持者們註冊一個 teamA 的標籤，B 球隊的支持者們則註冊 teamB，屆時若要推送關於 A 球隊的最新比數，直接向 teamA 這個 tag 推送即可。這個 tag 可以是任意長度小於 120 的字串，您甚至可以為每個使用者 ID 皆註冊一個 tag，如此一來便可以達到針對單一使用者推播的需求，如下圖：
 
-![Target by tag](target-by-tag.png)
+![Target by tag](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/target-by-tag.png)
 
-除了單一 tag 之外，您也可以使用「Tag expression」來表達所要推送的對象，它可以包含如「&&」、「||」、「!」的邏輯，以下圖為例，您可以使用 `(follows_RedSox || follows_Cardinals) && location_Boston` 這個 expression 來表達「居住在波士頓，並且追蹤紅襪或紅雀」這群使用者：
+除了單一 tag 之外，您也可以使用**「Tag expression」**來表達所要推送的對象，它可以包含如「&&」、「||」、「!」的邏輯，以下圖為例，您可以使用 `(follows_RedSox || follows_Cardinals) && location_Boston` 這個 expression 來表達「居住在波士頓，並且追蹤紅襪或紅雀」這群使用者：
 
-![Target by tag expression](target-by-tag-expression.png)
+![Target by tag expression](https://raw.githubusercontent.com/hungys/azure-blog/master/media/27-azure-notification-hubs-overview/target-by-tag-expression.png)
 
 標籤的使用可以相當彈性，以筆者的使用方法為例，舉凡 `userid:<USER ID>`、`version:<VERSION>`、`installAt:<INSTALL DATE>` ...等等的 tag 在發送推播時都相當實用。
 
@@ -100,6 +99,8 @@ Azure 官方在今年九月份修改了這個服務的收費機制，這點必�
 - 免費：包含單月**一百萬次**的推播量，但不可再付費增加，不限制活躍裝置數，但**最多僅可建立 3000 個不同的 tag，並且每次推播時最多只能推向 10000 個裝置**，若超過的話則會使用隨機的方法推播。
 - 基本：**每月 NT$311** 包含**一千萬次**的推播量，但您可以付費來增加這個限額，與免費方案的最搭差別在於支援了 auto-scaling。
 - 標準：**每月 NT$6206** 包含**一千萬次**的推播量，對於**標籤數量及單次廣播對象數量皆無上限**，並且支援排成推播，可以查詢註冊裝置...等功能，詳細差異可以參考[官方網站](http://azure.microsoft.com/zh-tw/pricing/details/notification-hubs/)。
+
+然而，與 Amazon 的 [Simple Notification Service (SNS)](http://aws.amazon.com/sns/) 相比，SNS 本身是 topic/subscribe 的概念，但與 Notification Hubs 的 tag 機制正好相反，topic 必須是在 SNS 上事先建立好才能由裝置註冊，而且即便是付費方案仍有單一 topic 的裝置數上線。筆者曾經比較過這兩個服務，基本上 Notification Hubs 能夠符合較多的情境及需求！
 
 # 後記
 
