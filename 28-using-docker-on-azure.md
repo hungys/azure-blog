@@ -9,15 +9,15 @@ Docker 是最近相當熱門的一個名詞，它是一個基於 Linux Container
 
 ![Logo](https://raw.githubusercontent.com/hungys/azure-blog/master/media/28-using-docker-on-azure/docker-logo.png)
 
-Docker 是一個 open-source 的專案，主要的特點是能將應用程式包裝在一個 LXC (Linux Container) 容器中，當這些應用被包裝進容器後，部署、遷移都變得極為簡單。與傳統的虛擬化技術相比，虛擬機器需要安裝作業系統才能執行應用程式，而 Container 內則不需要安裝作業系統就能執行應用程式。Container 技術是在 OS 內的 Kernel 層來打造虛擬執行環境，所以 Container 之間是共用了 Host OS 的 Kernel，但透過 namespace 來隔離每個容器。
+Docker 是一個 open-source 的專案，主要的特點是能將應用程式包裝在一個 LXC (Linux Container) 容器中，當這些應用被包裝進容器後，部署、遷移都變得更為簡單。與傳統的虛擬化技術相比，虛擬機器需要安裝作業系統才能執行應用程式，而 Container 則不需要安裝作業系統就能執行應用程式。Container 技術是一種在 OS 內的 Kernel 層所打造虛擬執行環境，所以 Container 彼此之間共用了 Host OS 的 Kernel，但透過 namespace 區分來達到隔離每個容器的目的。
 
 ![Concept](https://raw.githubusercontent.com/hungys/azure-blog/master/media/28-using-docker-on-azure/docker-concept.png)
 
-本文並不會針對 Docker 這個技術做更深入的探討，若讀者想要快速瞭解他與傳統虛擬化技術的差異，可以參考 iThome 上「[10個Q&A快速認識Docker](http://www.ithome.com.tw/news/91847)」這篇文章。
+本文並不會針對 Docker 這個技術做深入的介紹，主要著重在 Azure 對於 Docker 所提供的支援做介紹，若讀者想要快速瞭解他與傳統虛擬化技術的差異，可以參考 iThome 上「[10個Q&A快速認識Docker](http://www.ithome.com.tw/news/91847)」這篇文章。
 
 # 在 Azure 上建立 Docker Host
 
-Docker 可以執行在 Linux 作業系統之下，所以若要在 Azure 上使用 Docker，您也可以自行建立 VM，並在上面安裝 Docker Deamon 並執行。微軟在正式宣佈與 Docker 密切合作後，推出了對 Docker 的直接支援，您除了可以在 Preview Portal 上建立 Docker VM Extension 外，透過 xplat-cli 甚至可以透過一行指令就部署指定的 Linux 作業系統並預載了 Docker Host 可以直接使用。
+Docker 可以執行在 Linux 作業系統之下，所以若要在 Azure 上使用 Docker，您也可以自行建立 VM，並在上面安裝 Docker Deamon 並執行。而微軟在正式宣佈與 Docker 密切合作後，推出了對 Docker 的直接支援，您除了可以在 Preview Portal 上建立 Docker VM Extension 外，若選擇透過 xplat-cli 甚至可以透過一行指令就部署指定的 Linux 作業系統，並且預載了 Docker Deamon 可以直接使用。
 
 xplat-cli 的安裝與設定請參考先前的文章，在此假設讀者已經熟悉相關的指令。若要建立 Docker Host，首先請先確認您所要安裝的 Linux 作業系統，可以透過 `azure vm image list` 將所有映像檔列出：
 
@@ -29,7 +29,7 @@ $ azure vm image list | grep Ubuntu-14_04
 data:    b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140927-en-us-30GB                                 Public    Linux
 ```
 
-在此我們就選用最新的 Ubuntu 14.04 作為 OS，接下來使用 `azure vm docker create` 的指令來建立 Docker Host，這個指令的使用方法跟建立 VM 相當類似，但它會幫我們設定好相關的 Docker 執行環境：
+在此我們就選用最新的 Ubuntu 14.04 作為 OS，接下來便可使用 `azure vm docker create` 的指令來建立 Docker Host，這個指令的使用方法跟建立 VM 相當類似，但它會幫我們設定好相關的 Docker 執行環境：
 
 ```
 azure vm docker create -e 22 -l "East Asia" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140927-en-us-30GB" <username> <password>
@@ -71,7 +71,7 @@ WARNING: No swap limit support
 
 # 安裝虛擬化應用程式
 
-在 Docker 中應用程式是被包裝在 Container 當中的，您可以自己手動安裝建立這些 Container，或是透過 Dockerfile 的設定檔來 build 一個 Container image，而 Docker 官方也建立了一個完整的生態系讓您可以分享您的 Container image 或是將別人的 image pull 下來，可以前往：[https://registry.hub.docker.com/](https://registry.hub.docker.com/) 瞧瞧。
+在 Docker 中應用程式是被包裝在 Container 中的，您可以自己手動安裝建立這些 Container，或是透過 Dockerfile 的設定檔來 build 出一個 Container image，而 Docker 官方也建立了一個完整的生態系讓您可以分享您的 Container image 或是將別人的 image pull 下來，可以前往[https://registry.hub.docker.com/](https://registry.hub.docker.com/) 瞧瞧。
 
 以 redis 為例，官方便提供了 Dockerfile 在他們的 repo 中，若要使用的話只需要透過 `docker pull redis` 指令即可，再次提醒若要 pull 到遠端的 Docker Host 請指定 host 參數。
 
